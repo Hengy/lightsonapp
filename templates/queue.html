@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+
+<html lang="en" dir="ltr">
+
+  <head>
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@500&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+    <title>Lights On!</title>
+
+  </head>
+
+  <body>
+
+    <div>
+     <!-- <img src="{{url_for('static', filename='menu.png')}}" alt="menu" id="menu-icon"> -->
+      <p id="menu-title">QUEUE</p>
+      <p>UUID: {{ uuid }}</p>
+      <p>IP Address: {{ ip }}</p>
+    </div>
+
+    <a href="http://192.168.0.41:5000/end">End Session</a>
+
+  </body>
+
+</html>

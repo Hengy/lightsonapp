@@ -130,21 +130,23 @@ def index():
   else:
     return render_template("index.html", queue_len=queue_len, in_progress=False)
 
-@app.route("/heartbeat")
-def hearbeat():
+# @app.route("/heartbeat")
+# def hearbeat():
   
-  queue_empty = True
-  if len(user_queue) > 0:
-    queue_empty = False
+#   queue_empty = True
+#   if len(user_queue) > 0:
+#     queue_empty = False
 
-  in_progress = False
-  if 'uuid' in session:
-    in_progress = True
+#   in_progress = False
+#   if 'uuid' in session:
+#     in_progress = True
 
-  return render_template("index.html", queue_empty=queue_empty, in_progress=in_progress)
+#   return render_template("index.html", queue_empty=queue_empty, in_progress=in_progress)
 
 @app.route("/end")
 def end():
+  send_zmq_msg("IDLE", None, None)
+
   send_zmq_msg("Stop Controller", None, None)
 
   if not session.get('uuid') is None: # if uuid session variable exists

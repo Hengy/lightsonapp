@@ -40,8 +40,6 @@
       var user_ip = null;
 
       document.addEventListener('DOMContentLoaded', () => {
-        console.log('DOM loaded')
-
         // Connect to Socketio
         var flask_socket = io.connect('http://{{ self_ip }}:5000');
 

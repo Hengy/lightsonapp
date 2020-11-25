@@ -26,6 +26,8 @@ import fadecandy_ledctrl as fc
 
 import env_config
 
+from functools import partial
+
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     connections = set()
     _ledp = None
@@ -84,7 +86,7 @@ def process_msg(jsonmsg, ledp, conn):
             print("NO UUID MATCH")
 
 
-def process_zmq_message(msg):
+def process_zmq_message(msg, conn):
     recv_msg = json.loads(msg[0])
     print(recv_msg)
 
@@ -99,6 +101,11 @@ def process_zmq_message(msg):
         user_IP = None
         user_UUID = None
 
+    if recv_msg["message"] == "IDLE":
+        print(recv_msg)
+        conn.send(json.dumps({"CMD":"IDLE"}))
+
+
 
 def main():
     print("Websocket Server Process ID: ", os.getpid())
@@ -110,16 +117,17 @@ def main():
     #socket.bind("tcp://127.0.0.1:62830")
     socket.bind(env_config.ZMQ_SOCKET_IP + ":" + env_config.ZMQ_SOCKET_PORT)
 
-    # message callback
-    flask_stream = ZMQStream(socket)
-    flask_stream.on_recv(process_zmq_message, copy=True)
-
     # initialize fadecandy led control class
     led_controller = fc.LEDController()
 
     # set up multiprocessing pipes
     ws_ledp_conn, ledp_conn = multiprocessing.Pipe()
     ledp = multiprocessing.Process(target=led_controller.run, args=[ledp_conn])
+
+    # message callback
+    flask_stream = ZMQStream(socket)
+    flask_stream.on_recv(partial(process_zmq_message, conn=ws_ledp_conn), copy=True)
+
     ledp.start()    # start led controller process
 
     # create websocket listener

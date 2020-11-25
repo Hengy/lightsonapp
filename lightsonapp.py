@@ -19,17 +19,23 @@ from apscheduler.schedulers.background import BackgroundScheduler
 
 import env_config
 
-# flask
+# -----------------------------------------------------
+# FLASK CONFIG
+# -----------------------------------------------------
 app = Flask(__name__)
 app.config['TEMPLATES_AUTO_RELOAD'] = True
 app.config['SECRET_KEY'] = b'6hc/_gsh,./;2ZZx3c6_s,1//'
 app.config['SEND_FILE_MAX_AGE_DEFAULT'] = 0
 socketio = SocketIO(app,cors_allowed_origins="*")
 
-# queue
+# -----------------------------------------------------
+# USER QUEUE
+# -----------------------------------------------------
 user_queue = []
 
-# current user
+# -----------------------------------------------------
+# USER CLASS
+# -----------------------------------------------------
 class Controller():
   _controller = False
   _IP = None
@@ -38,6 +44,9 @@ class Controller():
   _time_start = None
   _time_end = None
   
+  # -----------------------------------------------------
+  # class init
+  # -----------------------------------------------------
   def __init__(self, IP, pos, ctrl):
     self._controller = ctrl
     self._IP = IP
@@ -45,39 +54,56 @@ class Controller():
     self._UUID = uuid.uuid1()
     self._time_start = time.time()
 
+  # returns user IP address
   def get_IP(self):
     return self._IP
 
+  # returns user position in queue
   def get_position(self):
     return self._position
 
+  # set user position in queue
   def set_position(self, pos):
     self._position = pos
 
+  # decrement user position in queue
   def decr_position(self):
     self._position -= 1
 
+  # returns if user is current LED controller
   def get_ctrl(self):
     return self._controller
 
+  # set user LED controller status
   def set_ctrl(self, ctrl):
     self._controller = ctrl
 
+  # return user UUID
   def get_uuid(self):
     return self._UUID
 
+  # return time user was created (added to queue)
   def get_time_start(self):
     return self._time_start
 
+  # return user end of session time
   def get_time_end(self):
     return self._time_end
 
+  # set user end of session time
   def set_time_end(self, t):
     self._time_end = t
 
+
+# -----------------------------------------------------
+# ZMQ global context
+# -----------------------------------------------------
 ws_context = zmq.Context()
 
 
+# -----------------------------------------------------
+# Check if current controller time has elapsed
+# -----------------------------------------------------
 def controllercheck():
 
   popped = False
@@ -99,7 +125,7 @@ def controllercheck():
 
   return popped
 
-      
+
 def queuedcheck(uuid):
   position = None
   for i in range(len(user_queue)):
@@ -108,7 +134,9 @@ def queuedcheck(uuid):
 
   return position
 
-
+# -----------------------------------------------------
+# Send ZMQ message to Fadecandy Web API process
+# -----------------------------------------------------
 def send_zmq_msg(msg, uuid, ip):
   # set up Zero MQ connection to websocket server
   socket = ws_context.socket(zmq.PAIR)
@@ -120,6 +148,10 @@ def send_zmq_msg(msg, uuid, ip):
   socket.send_json(response)
   socket.close()
 
+
+# -----------------------------------------------------
+# INDEX
+# -----------------------------------------------------
 @app.route("/")
 def index():
   
@@ -130,6 +162,11 @@ def index():
   else:
     return render_template("index.html", queue_len=queue_len, in_progress=False)
 
+
+# -----------------------------------------------------
+# HTTP Polling heartbeat
+# DEPRECATED - replaced by websockets
+# -----------------------------------------------------
 # @app.route("/heartbeat")
 # def hearbeat():
   
@@ -143,6 +180,11 @@ def index():
 
 #   return render_template("index.html", queue_empty=queue_empty, in_progress=in_progress)
 
+
+# -----------------------------------------------------
+# END
+# Ends session; removes controller from queue
+# -----------------------------------------------------
 @app.route("/end")
 def end():
   send_zmq_msg("IDLE", None, None)
@@ -162,6 +204,11 @@ def end():
 
   return redirect(url_for('.index'), code=307)
 
+
+# -----------------------------------------------------
+# ADD TO QUEUE
+# Adds new user to queue
+# -----------------------------------------------------
 @app.route("/addtoqueue")
 def addtoqueue():
   
@@ -184,7 +231,7 @@ def addtoqueue():
   elif len(user_queue) < env_config.QUEUE_MAX:
     # queue not empty, add to queue
 
-    print("Adding user to queue.")
+    print("Adding user to queue. Position ", len(user_queue) + 1)
 
     user = Controller(request.remote_addr, len(user_queue), False)
     user.set_time_end(time.time() + (len(user_queue) * env_config.QUEUE_MAX_TIME))
@@ -192,16 +239,20 @@ def addtoqueue():
 
     session['uuid'] = user.get_uuid()
 
-    return render_template("queue.html", queue_full=False)
+    return render_template("queuewait.html", queue_full=False)
   
   else:
+    # queue is full
 
     print("Queue full!")
 
-    return render_template("queue.html", queue_full=True)
+    return render_template("queuefull.html", queue_full=True)
 
 
-
+# -----------------------------------------------------
+# LED CONTROL
+# Allows controller to control LEDs
+# -----------------------------------------------------
 @app.route("/ledctrl")
 def ledctrl():
 
@@ -223,26 +274,35 @@ def ledctrl():
     return redirect(url_for('.index'), code=307)
 
 
+# -----------------------------------------------------
+# Gives all templates the SELF_IP variable
+# -----------------------------------------------------
 @app.context_processor
 def inject_selfip():
     return dict(self_ip=env_config.SELF_IP)
 
 
+# -----------------------------------------------------
+# ON SCIKETIO CONNECT
+# -----------------------------------------------------
 @socketio.on('connect')
 def test_connect():
   print("Client SocketIO connected")
 
+# -----------------------------------------------------
+# ON SCIKETIO 'SWITCH CONTROL' EVENT
+# -----------------------------------------------------
 @socketio.on('switch control')
 def switchctrl_handler(json, methods=['POST']):
   print('Recieved JSON: ' + str(json))
 
+# -----------------------------------------------------
+# ON SCIKETIO 'CHECK' EVENT
+# Replaces HTTP heartbeat; checks if controller end time
+# has been reached - returns True if time has elapsed
+# -----------------------------------------------------
 @socketio.on('check')
 def check_handler(jsonmsg, methods=['POST']):
-  # print('Recieved JSON: ' + str(jsonmsg))
-  # msg = json.loads(jsonmsg)
-  # if msg.has_key('uuid'):
-  #   print(valid)
-  
   time_expired = controllercheck()
   if time_expired:
     print("Check handled; time expired")
@@ -250,13 +310,12 @@ def check_handler(jsonmsg, methods=['POST']):
   emit('check_result', data)
 
 
+# -----------------------------------------------------
+# LIGHTS ON FLASK APP MAIN
+# -----------------------------------------------------
 if __name__ == "__main__":
 
   print("Flask Process ID: ", os.getpid())
-
-  # scheduler = BackgroundScheduler()
-  # scheduler.add_job(queuecheck, 'interval', seconds=2)
-  # scheduler.start()
 
   # app.run(host='0.0.0.0',debug=True)
   socketio.run(app,host=env_config.FLASK_HOST,debug=True)

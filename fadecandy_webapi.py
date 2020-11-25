@@ -24,6 +24,8 @@ import pickle
 
 import fadecandy_ledctrl as fc
 
+import env_config
+
 class WebSocketHandler(tornado.websocket.WebSocketHandler):
     connections = set()
     _ledp = None
@@ -105,7 +107,8 @@ def main():
     flask_context = zmq.Context()
     socket = flask_context.socket(zmq.PAIR)
     print("Binding to port 62830")
-    socket.bind("tcp://127.0.0.1:62830")
+    #socket.bind("tcp://127.0.0.1:62830")
+    socket.bind(env_config.ZMQ_SOCKET_IP + ":" + env_config.ZMQ_SOCKET_PORT)
 
     # message callback
     flask_stream = ZMQStream(socket)
@@ -125,7 +128,8 @@ def main():
     ])
 
     # # listen to websocket indefinitely
-    websocket_listener.listen(31415)
+    # websocket_listener.listen(31415)
+    websocket_listener.listen(env_config.TORNADO_PORT)
     tornado.ioloop.IOLoop.current().start()
 
 

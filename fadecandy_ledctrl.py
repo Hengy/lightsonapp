@@ -10,8 +10,10 @@ import json
 
 import functools
 
-numLEDs = 320
-client = opc.Client('localhost:7890')
+import env_config
+
+numLEDs = env_config.NUM_LEDS
+client = opc.Client(env_config.OPC_ADDR)
 
 class LEDController():
     def __init__(self):

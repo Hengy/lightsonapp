@@ -21,11 +21,11 @@
      <!-- <img src="{{url_for('static', filename='menu.png')}}" alt="menu" id="menu-icon">  -->
       <p id="menu-title">Index</p>
       {% if in_progress %}
-        <a href="http://192.168.0.41:5000/ledctrl">Continue Session</a>
+        <a href="http://{{ self_ip }}:5000/ledctrl">Continue Session</a>
         <br><br>
-        <a href="http://192.168.0.41:5000/end">End Session</a>
+        <a href="http://{{ self_ip }}:5000/end">End Session</a>
       {% else %}
-          <a href="http://192.168.0.41:5000/addtoqueue">Add to queue</a>
+          <a href="http://{{ self_ip }}:5000/addtoqueue">Add to queue</a>
       {% endif %}
     </div>
 

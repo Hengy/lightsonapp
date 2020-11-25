@@ -10391,3 +10391,3157 @@ WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x11bf7f0 pid: 476 
 gracefully (RE)spawned uWSGI master process (pid: 476)
 spawned uWSGI worker 1 (pid: 5701, cores: 2)
 unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 15:10:54 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 5701)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 15:10:55 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x10f67f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x10f67f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 5891, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 15:11:17 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 5891)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 15:11:18 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x4567f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x4567f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 5912, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 15:11:39 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 5912)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 15:11:40 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1bbc7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1bbc7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 5933, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 15:12:14 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 5933)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 15:12:15 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1c147f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1c147f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 5963, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 15:13:52 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 5963)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 15:13:53 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1ff97f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1ff97f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6061, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 15:18:07 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6061)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 15:18:08 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1eee7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 1 seconds on interpreter 0x1eee7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6207, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:04:04 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6207)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:04:05 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xe0c7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xe0c7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6500, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:04:17 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6500)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:04:18 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xd1a7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xd1a7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6525, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:04:50 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6525)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:04:51 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x8837f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x8837f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6551, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:06:20 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6551)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:06:21 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x20c97f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x20c97f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6577, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:14:37 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6577)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:14:38 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x20ca7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x20ca7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6615, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:14:44 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6615)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:14:45 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x16ea7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 211
+    if __name__ == "__main__":
+     ^
+IndentationError: expected an indented block
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6627, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:16:16 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6627)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:16:17 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1a4c7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 210
+    socketio.
+            ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6638, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:21:49 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6638)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:21:50 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x174b7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x174b7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6678, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:23:10 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6678)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:23:11 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x148f7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 88
+    def send_zmq_msg(msg, uuid, ip):
+    ^
+IndentationError: expected an indented block
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6692, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:27:35 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6692)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:27:36 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x4a07f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x4a07f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6720, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:27:44 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6720)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:27:45 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x15b57f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x15b57f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6737, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:28:59 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6737)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:29:00 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x9637f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x9637f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6752, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:29:20 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6752)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:29:21 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xa5e7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xa5e7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6772, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:29:36 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6772)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:29:37 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x14af7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x14af7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6796, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:30:04 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6796)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:30:05 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xd107f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 99
+    def send_zmq_msg(msg, uuid, ip):
+      ^
+IndentationError: expected an indented block
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6809, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:30:47 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6809)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:30:48 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x177b7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 99
+    if 
+      ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6819, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:31:30 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6819)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:31:31 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x166c7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 100
+    if 
+      ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6831, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:32:01 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6831)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:32:02 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x10f87f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 101
+    for i in range(len(user_queue))
+                                  ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6842, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:32:14 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6842)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:32:15 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xfeb7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 102
+    for i in range(len(user_queue))
+                                  ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6854, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:32:22 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6854)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:32:23 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1f087f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 103
+    for i in range(len(user_queue))
+                                  ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6863, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:32:33 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6863)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:32:34 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1fab7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 105
+    for i in range(len(user_queue))
+                                  ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6875, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:32:35 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6875)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:32:36 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1c467f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 106
+    for i in range(len(user_queue))
+                                  ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6882, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:32:43 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6882)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:32:44 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xa3e7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 106
+    for i in range(len(user_queue))
+                                  ^
+SyntaxError: invalid syntax
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6891, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:33:12 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6891)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:33:13 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x15807f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 109
+    return controller
+         ^
+IndentationError: expected an indented block
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6903, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:33:16 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6903)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:33:17 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1a4c7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+  File "./lightsonapp.py", line 109
+    return position
+         ^
+IndentationError: expected an indented block
+unable to load app 0 (mountpoint='') (callable not found or import error)
+*** no app loaded. going in full dynamic mode ***
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6912, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:33:56 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6912)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:33:58 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1b6c7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1b6c7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6936, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:34:12 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6936)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:34:13 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x5167f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x5167f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6956, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:34:51 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6956)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:34:52 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xfbd7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xfbd7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6979, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:34:55 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6979)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:34:56 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x14427f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x14427f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 6983, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:35:17 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 6983)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:35:18 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x4807f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x4807f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7011, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:49:30 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7011)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:49:32 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x16667f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x16667f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7162, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:49:39 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7162)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:49:40 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x92d7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x92d7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7176, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:50:55 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7176)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:50:56 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xe8f7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xe8f7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7209, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:51:01 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7209)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:51:02 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x8367f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x8367f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7221, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:51:05 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7221)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:51:06 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x23b7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x23b7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7225, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:54:25 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7225)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:54:26 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x4d37f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x4d37f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7267, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:54:31 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7267)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:54:32 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x19b87f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x19b87f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7284, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 17:56:12 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7284)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 17:56:13 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xb9c7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xb9c7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7311, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:17:24 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7311)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:17:25 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xaf97f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xaf97f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7559, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:31:25 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7559)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:31:26 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xe987f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xe987f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7620, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:36:28 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7620)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:36:29 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x16c87f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x16c87f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7652, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:41:57 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7652)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:41:58 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xc277f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xc277f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7686, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:42:45 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7686)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:42:46 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x5267f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x5267f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7713, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:43:32 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7713)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:43:33 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x12f37f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x12f37f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7739, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:43:41 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7739)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:43:42 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x3917f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x3917f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7756, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:45:52 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7756)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:45:53 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x5dc7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x5dc7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7794, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:46:07 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7794)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:46:08 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xbb17f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xbb17f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7820, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:47:50 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7820)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:47:51 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x3ce7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x3ce7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7846, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 20:48:06 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7846)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 20:48:07 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x7507f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x7507f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7872, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:30:28 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7872)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:30:29 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xb707f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xb707f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7968, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:30:49 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7968)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:30:50 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x17057f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x17057f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 7993, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:36:43 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 7993)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:36:44 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x37b7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x37b7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 8047, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:40:29 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8047)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:40:30 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xb367f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xb367f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 8065, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:52:28 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8065)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:52:29 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x200f7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x200f7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 8117, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:53:36 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8117)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:53:37 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x12dd7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x12dd7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 8145, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 21:54:51 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8145)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 21:54:52 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x5397f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x5397f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 8172, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Mon Nov 23 22:03:48 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8172)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Mon Nov 23 22:03:49 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1a877f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1a877f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 8240, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 08:42:45 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 8240)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 08:42:46 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1ab87f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1ab87f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 9419, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 08:43:57 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 9419)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 08:43:58 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x9be7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x9be7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 9446, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 08:46:30 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 9446)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 08:46:31 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1d387f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1d387f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 9482, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 08:52:32 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 9482)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 08:52:33 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1e4b7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1e4b7f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 9554, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 08:53:37 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 9554)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 08:53:38 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1c57f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1c57f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 9590, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 08:59:31 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 9590)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 08:59:32 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1a967f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1a967f0 pid: 476 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 476)
+spawned uWSGI worker 1 (pid: 9622, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM WARNING: unix socket /tmp/flaskapp.sock changed inode. Skip removal
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 10:02:10 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xaac830
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 4 seconds on interpreter 0xaac830 pid: 474 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 474)
+spawned uWSGI worker 1 (pid: 644, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /tmp/flaskapp.sock removed.
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 10:06:57 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1612830
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1612830 pid: 477 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 477)
+spawned uWSGI worker 1 (pid: 561, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /tmp/flaskapp.sock removed.
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 10:23:16 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x196d830
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x196d830 pid: 441 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 441)
+spawned uWSGI worker 1 (pid: 584, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /tmp/flaskapp.sock removed.
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 11:40:24 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x3d6830
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x3d6830 pid: 460 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 460)
+spawned uWSGI worker 1 (pid: 561, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM: unix socket /tmp/flaskapp.sock removed.
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 15:32:59 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xdd7830
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0xdd7830 pid: 466 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 466)
+spawned uWSGI worker 1 (pid: 561, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 22:00:28 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 561)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 22:00:29 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1cd97f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1cd97f0 pid: 466 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 466)
+spawned uWSGI worker 1 (pid: 1784, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+SIGINT/SIGQUIT received...killing workers...
+worker 1 buried after 1 seconds
+goodbye to uWSGI.
+VACUUM WARNING: unix socket /tmp/flaskapp.sock changed inode. Skip removal
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 22:39:03 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 bound to UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1293830
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 3 seconds on interpreter 0x1293830 pid: 464 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+spawned uWSGI master process (pid: 464)
+spawned uWSGI worker 1 (pid: 562, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 22:53:04 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 562)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 22:53:05 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x1f1b7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x1f1b7f0 pid: 464 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 464)
+spawned uWSGI worker 1 (pid: 1073, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 22:57:51 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 1073)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 22:57:52 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0xba77f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0xba77f0 pid: 464 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 464)
+spawned uWSGI worker 1 (pid: 1155, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 22:58:09 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 1155)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 22:58:10 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x16277f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x16277f0 pid: 464 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 464)
+spawned uWSGI worker 1 (pid: 1177, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created
+Tue Nov 24 22:59:03 2020 - *** /home/pi/flask_apps/lightsonapp/lightsonapp.py has been touched... grace them all !!! ***
+...gracefully killing workers...
+Gracefully killing worker 1 (pid: 1177)...
+worker 1 buried after 1 seconds
+binary reloading uWSGI...
+chdir() to /home/pi/flask_apps/lightsonapp
+closing all non-uwsgi socket fds > 2 (max_fd = 1024)...
+found fd 3 mapped to socket 0 (/tmp/flaskapp.sock)
+running /usr/bin/uwsgi-core
+[uWSGI] getting INI configuration from /home/pi/flask_apps/lightsonapp/uwsgi.ini
+*** Starting uWSGI 2.0.18-debian (32bit) on [Tue Nov 24 22:59:04 2020] ***
+compiled with version: 8.2.0 on 10 February 2019 02:42:46
+os: Linux-5.4.51-v7l+ #1333 SMP Mon Aug 10 16:51:40 BST 2020
+nodename: raspberrypi
+machine: armv7l
+clock source: unix
+pcre jit disabled
+detected number of CPU cores: 4
+current working directory: /home/pi/flask_apps/lightsonapp
+detected binary path: /usr/bin/uwsgi-core
+chdir() to /home/pi/flask_apps/lightsonapp
+your processes number limit is 12873
+your memory page size is 4096 bytes
+detected max file descriptor number: 1024
+lock engine: pthread robust mutexes
+thunder lock: disabled (you can enable it with --thunder-lock)
+uwsgi socket 0 inherited UNIX address /tmp/flaskapp.sock fd 3
+Python version: 3.7.3 (default, Jul 25 2020, 13:03:44)  [GCC 8.3.0]
+Python main interpreter initialized at 0x75e7f0
+python threads support enabled
+your server socket listen backlog is limited to 100 connections
+your mercy for graceful operations on workers is 60 seconds
+mapped 143936 bytes (140 KB) for 2 cores
+*** Operational MODE: threaded ***
+WSGI app 0 (mountpoint='') ready in 2 seconds on interpreter 0x75e7f0 pid: 464 (default app)
+*** uWSGI is running in multiple interpreter mode ***
+gracefully (RE)spawned uWSGI master process (pid: 464)
+spawned uWSGI worker 1 (pid: 1208, cores: 2)
+unable to stat() /home/pi/flask_apps/lightsonapp/app.py, events will be triggered as soon as the file is created

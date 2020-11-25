@@ -1,5 +1,6 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 from flask_socketio import SocketIO, emit
+from flask_socketio import send as sendio
 
 import os
 import subprocess
@@ -15,6 +16,8 @@ import uuid
 import pickle
 
 from apscheduler.schedulers.background import BackgroundScheduler
+
+import env_config
 
 # flask
 app = Flask(__name__)
@@ -75,13 +78,42 @@ class Controller():
 ws_context = zmq.Context()
 
 
-def queuecheck():
-  print("checking user queue")
+def controllercheck():
+
+  popped = False
+
+  if len(user_queue) > 0:
+    if user_queue[0].get_time_end() <= time.time(): # if controller time had expired
+      print("new controller!")
+
+      if len(user_queue) > 1:
+        print("next!")
+        for i in range(1, len(user_queue)):
+          user_queue[i].decr_position()
+        
+        user_queue[0].set_ctrl(True)
+        user_queue[0].set_time_end(time.time() + env_config.QUEUE_MAX_TIME)
+      
+      user_queue.pop(0)
+      popped = True
+
+  return popped
+
+      
+def queuedcheck(uuid):
+  position = None
+  for i in range(len(user_queue)):
+    if user_queue[i].get_ctrl():
+      position = i
+
+  return position
+
 
 def send_zmq_msg(msg, uuid, ip):
   # set up Zero MQ connection to websocket server
   socket = ws_context.socket(zmq.PAIR)
-  socket.connect("tcp://127.0.0.1:62830")
+  #socket.connect("tcp://127.0.0.1:62830")
+  socket.connect(env_config.ZMQ_SOCKET_IP + ":" + env_config.ZMQ_SOCKET_PORT)
 
   response = {"message":msg, "uuid":uuid, "IP": ip}
 
@@ -138,6 +170,7 @@ def addtoqueue():
     print("Adding user. First in queue.")
 
     user = Controller(request.remote_addr, len(user_queue), True)
+    user.set_time_end(time.time() + env_config.QUEUE_MAX_TIME)
     user_queue.append(user)
 
     session['uuid'] = user.get_uuid()
@@ -146,12 +179,13 @@ def addtoqueue():
 
     return redirect(url_for('ledctrl'), code=307)
 
-  elif len(user_queue) < 3:
+  elif len(user_queue) < env_config.QUEUE_MAX:
     # queue not empty, add to queue
 
     print("Adding user to queue.")
 
     user = Controller(request.remote_addr, len(user_queue), False)
+    user.set_time_end(time.time() + (len(user_queue) * env_config.QUEUE_MAX_TIME))
     user_queue.append(user)
 
     session['uuid'] = user.get_uuid()
@@ -187,26 +221,43 @@ def ledctrl():
     return redirect(url_for('.index'), code=307)
 
 
+@app.context_processor
+def inject_selfip():
+    return dict(self_ip=env_config.SELF_IP)
+
+
 @socketio.on('connect')
 def test_connect():
   print("Client SocketIO connected")
-  emit('after connect',  {'data':'Lets dance'})
 
 @socketio.on('switch control')
-def handle_my_custom_event(json, methods=['POST']):
-    print('Recieved JSON: ' + str(json))
+def switchctrl_handler(json, methods=['POST']):
+  print('Recieved JSON: ' + str(json))
+
+@socketio.on('check')
+def check_handler(jsonmsg, methods=['POST']):
+  # print('Recieved JSON: ' + str(jsonmsg))
+  # msg = json.loads(jsonmsg)
+  # if msg.has_key('uuid'):
+  #   print(valid)
+  
+  time_expired = controllercheck()
+  if time_expired:
+    print("Check handled; time expired")
+  data = json.dumps({"check_result":time_expired})
+  emit('check_result', data)
 
 
 if __name__ == "__main__":
 
   print("Flask Process ID: ", os.getpid())
 
-  scheduler = BackgroundScheduler()
-  scheduler.add_job(queuecheck, 'interval', seconds=2)
-  scheduler.start()
+  # scheduler = BackgroundScheduler()
+  # scheduler.add_job(queuecheck, 'interval', seconds=2)
+  # scheduler.start()
 
   # app.run(host='0.0.0.0',debug=True)
-  socketio.run(app,host='0.0.0.0',debug=True)
+  socketio.run(app,host=env_config.FLASK_HOST,debug=True)
 
 # if __name__ == "__main__":
 #   main(None)

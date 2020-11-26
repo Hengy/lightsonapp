@@ -6,6 +6,7 @@ import os
 import subprocess
 
 import time
+import datetime
 
 import zmq
 
@@ -18,6 +19,8 @@ import pickle
 from apscheduler.schedulers.background import BackgroundScheduler
 
 import env_config
+
+import math
 
 # -----------------------------------------------------
 # FLASK CONFIG
@@ -51,7 +54,7 @@ class Controller():
     self._controller = ctrl
     self._IP = IP
     self._position = pos
-    self._UUID = uuid.uuid1()
+    self._UUID = uuid.uuid4()
     self._time_start = time.time()
 
   # returns user IP address
@@ -102,6 +105,19 @@ ws_context = zmq.Context()
 
 
 # -----------------------------------------------------
+# Check if it is within Lights On time
+# returns True if it is between TIME_ON and TIME_OFF
+# -----------------------------------------------------
+def check_in_time():
+  in_time = False
+  hour_now = datetime.datetime.now().hour
+  if hour_now >= env_config.TIME_ON:
+    if hour_now <= env_config.TIME_OFF:
+      in_time = True
+
+  return in_time
+
+# -----------------------------------------------------
 # Check if current controller time has elapsed
 # -----------------------------------------------------
 def controllercheck():
@@ -112,27 +128,40 @@ def controllercheck():
     if user_queue[0].get_time_end() <= time.time(): # if controller time had expired
       print("new controller!")
 
-      if len(user_queue) > 1:
+      send_zmq_msg("Stop Controller", None, None)
+      user_queue.pop(0)
+      popped = True
+
+      if len(user_queue) > 0:
         print("next!")
         for i in range(1, len(user_queue)):
           user_queue[i].decr_position()
         
         user_queue[0].set_ctrl(True)
         user_queue[0].set_time_end(time.time() + env_config.QUEUE_MAX_TIME)
+        send_zmq_msg("IDLE", None, None)
+        send_zmq_msg("New Controller", str(user_queue[0].get_uuid()), str(user_queue[0].get_IP()))
       
-      user_queue.pop(0)
-      popped = True
-
   return popped
 
 
-def queuedcheck(uuid):
-  position = None
-  for i in range(len(user_queue)):
-    if user_queue[i].get_ctrl():
-      position = i
+# -----------------------------------------------------
+# Check if user position in queue changes
+# -----------------------------------------------------
+def waitcheck(uuid):
+  result = False
 
-  return position
+  for i in range(len(user_queue)):
+    uuid1 = str(user_queue[i].get_uuid())
+    uuid2 = str(uuid)
+    if uuid1 == uuid2:
+      result = user_queue[i].get_ctrl()
+      break
+
+  if result:
+    print("waiting over")
+
+  return result
 
 # -----------------------------------------------------
 # Send ZMQ message to Fadecandy Web API process
@@ -154,13 +183,20 @@ def send_zmq_msg(msg, uuid, ip):
 # -----------------------------------------------------
 @app.route("/")
 def index():
+
+  if check_in_time():
   
-  queue_len = len(user_queue)
-  if 'uuid' in session:
-    # session in progress
-    return render_template("index.html", queue_len=queue_len, in_progress=True)
+    queue_len = len(user_queue)
+    if 'uuid' in session:
+      # session in progress
+      return render_template("index.html", queue_len=queue_len, in_progress=True, in_time=True)
+    else:
+      return render_template("index.html", queue_len=queue_len, in_progress=False, in_time=True)
+
   else:
-    return render_template("index.html", queue_len=queue_len, in_progress=False)
+
+    return render_template("index.html", in_time=False)
+
 
 
 # -----------------------------------------------------
@@ -239,15 +275,40 @@ def addtoqueue():
 
     session['uuid'] = user.get_uuid()
 
-    return render_template("queuewait.html", queue_full=False)
+    return redirect(url_for('waitqueue', uuid=user.get_uuid))
+    #return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq)
   
   else:
     # queue is full
 
     print("Queue full!")
 
-    return render_template("queuefull.html", queue_full=True)
+    time_diff = (user_queue[0].get_time_end() - time.time()) + 10 # calcualte seconds until queue is not full, add 10 sec
 
+    time_wait = math.ceil(time_diff)   # round number up
+
+    return render_template("queuefull.html", queue_full=True, wait_time=time_wait)
+
+# -----------------------------------------------------
+# QUEUE WAIT
+# Wait for turn in queue
+# -----------------------------------------------------
+@app.route("/waitqueue")
+def waitqueue():
+  print("Waiting in queue")
+
+  pos = None
+  user_uuid = session.get('uuid')
+  print("Waiting with user uuid: ", user_uuid)
+
+  for user in user_queue:
+    if user_uuid == request.args.get('uuid'):
+      pos = user.get_position()
+      break
+
+  maxq = env_config.QUEUE_MAX
+
+  return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq, user_uuid=user_uuid, user_ip=request.remote_addr)
 
 # -----------------------------------------------------
 # LED CONTROL
@@ -256,22 +317,30 @@ def addtoqueue():
 @app.route("/ledctrl")
 def ledctrl():
 
-  if not session.get('uuid') is None: # if uuid session variable exists
-    if user_queue[0].get_uuid() == session.get('uuid'):
-    
-      return render_template("ledctrl.html", data={"uuid":session.get('uuid'), "ip":str(request.remote_addr)})
+  if check_in_time():
+  
+    if not session.get('uuid') is None: # if uuid session variable exists
+      if user_queue[0].get_uuid() == session.get('uuid'):
+      
+        return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()))
 
+      else:
+
+        print("ERROR! Should not be able to control LEDs at this time")
+
+        return redirect(url_for('end'), code=307)
+    
     else:
 
-      print("ERROR! Should not be able to control LEDs at this time")
+      print("ERROR!")
 
-      return redirect(url_for('addtoqueue'), code=307)
-    
+      return redirect(url_for('end'), code=307)
+
   else:
 
-    print("ERROR!")
+    return redirect(url_for('end'), code=307)
 
-    return redirect(url_for('.index'), code=307)
+  
 
 
 # -----------------------------------------------------
@@ -293,7 +362,7 @@ def test_connect():
 # ON SCIKETIO 'SWITCH CONTROL' EVENT
 # -----------------------------------------------------
 @socketio.on('switch control')
-def switchctrl_handler(json, methods=['POST']):
+def switchctrl_handler(jsonmsg, methods=['POST']):
   print('Recieved JSON: ' + str(json))
 
 # -----------------------------------------------------
@@ -308,6 +377,18 @@ def check_handler(jsonmsg, methods=['POST']):
     print("Check handled; time expired")
   data = json.dumps({"check_result":time_expired})
   emit('check_result', data)
+
+# -----------------------------------------------------
+# ON SCIKETIO 'WAIT' EVENT
+# query if user position in queue has changed
+# -----------------------------------------------------
+@socketio.on('wait')
+def wait_handler(jsonmsg, methods=['POST']):
+  gain_ctrl = waitcheck(str(jsonmsg['uuid']))
+  if gain_ctrl:
+    print("Wait handled; giving control to next in queue")
+  data = json.dumps({"wait_result":gain_ctrl})
+  emit('wait_result', data)
 
 
 # -----------------------------------------------------

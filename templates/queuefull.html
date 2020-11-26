@@ -18,13 +18,11 @@
   <body>
 
     <div>
-     <!-- <img src="{{url_for('static', filename='menu.png')}}" alt="menu" id="menu-icon"> -->
-      <p id="menu-title">QUEUE</p>
-      <p>UUID: {{ uuid }}</p>
-      <p>IP Address: {{ ip }}</p>
-    </div>
-
-    <a href="http://{{ self_ip }}:5000/end">End Session</a>
+      <!-- <img src="{{url_for('static', filename='menu.png')}}" alt="menu" id="menu-icon"> -->
+       <p id="menu-title">QUEUE</p>
+       <p>Sorry, the queue for this window is currently full. Please try again in {{ wait_time }} seconds.</p>
+       <button onclick="document.location='http://{{ self_ip }}:5000/addtoqueue'">Try Again</button>
+     </div>
 
   </body>
 

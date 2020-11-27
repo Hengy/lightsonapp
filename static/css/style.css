@@ -6,7 +6,18 @@
     font-style: normal;
 }
 
+@font-face {
+    font-family: 'neucharegular';
+    src: url('neucha-regular-webfont.woff2') format('woff2'),
+         url('neucha-regular-webfont.woff') format('woff');
+    font-weight: normal;
+    font-style: normal;
+
+}
+
 @import url('https://fonts.googleapis.com/css2?family=Ubuntu+Mono:wght@700&display=swap');
+
+@import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
 html {
     width: 98vw;
@@ -15,7 +26,7 @@ html {
 
 body {
     width: 98vw;
-    font-family: 'WebFont', Arial, sans-serif;
+    font-family: 'droid_sansregular', Arial, sans-serif;
 }
 
 #logo-container {
@@ -39,7 +50,7 @@ body {
     padding: 10px 20px 20px 20px;
     background-color: rgba(81,99,107,0.2);
     color: black;
-    font-family: 'WebFont', Arial, sans-serif;
+    font-family: 'droid_sansregular', Arial, sans-serif;
     text-align: justify;
     display: block;
     overflow: hidden;
@@ -71,8 +82,9 @@ body {
 }
 
 #info_msg {
-    width: calc(100% - 40px);
+    width: calc(80% - 40px);
     margin-top: 20px;
+    margin-left: calc(10% - 10px);
     padding: 10px 20px 20px 20px;
     font-weight: 500;
     color: white;
@@ -117,7 +129,21 @@ a {
     font-weight: 600;
 }
 
+#leave-bttn {
+    width: 30%;
+    height: 40px;
+    margin-left: 35%;
+    border-radius: 2px;
+    border-color: black;
+    border-width: 2px;
+    background-color:  rgb(129, 0, 0);
+    color: white;
+    font-size:24px;
+    font-weight: 400;
+}
+
 #footer {
+    float: left;
     width: 100%;
     text-align: center;
     color: rgb(240,240,240);
@@ -139,4 +165,53 @@ a {
     font-family: 'Ubuntu Mono', monospace;
     color: rgba(151,202,61);
     font-size: 64px;
+}
+
+#button-container {
+    width: 80%;
+    margin-left: 10%;
+    margin-top: 20px;
+}
+
+.effect-button {
+    width: calc(100% - 20px);
+    height: 100px;
+    border-radius: 14px;
+    border-color: rgb(220,220,220);
+    border-width: 2px;
+    border-style: solid;
+    background-color: rgba(0,160,221,0.1);
+}
+
+.effect-button:active {
+    background-color: rgba(0,160,221,0.6);
+}
+
+.effect-img {
+    float: left;
+    width: 100px;
+}
+
+#effect-title {
+    width: calc(100% - 40px);
+    color: rgba(0,160,221);
+    font-size: 36px;
+    font-family: 'neucharegular', Arial, sans-serif;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    margin-left: 10px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+}
+
+.effect-name {
+    width: calc(80% - 110px);
+    height: 40px;
+    margin-top: 24px;
+    margin-bottom: 0px;
+    float: left;
+    font-family: 'neucharegular', Arial, sans-serif;
+    font-size: 36px;
+    color: rgba(91,51,147);
+    padding-left: 20px;
 }

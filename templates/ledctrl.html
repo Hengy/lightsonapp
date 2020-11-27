@@ -18,17 +18,35 @@
   <body>
 
     <div>
-     <!-- <img src="{{url_for('static', filename='menu.png')}}" alt="menu" id="menu-icon">  -->
-      <p id="menu-title">LED CONTROL</p>
-      <h3>Time Left:</h3>
-      <p id="time-left"></p>
-      <br>
-      <button id="idle-bttn">IDLE</button>
-      <button id="LED-bttn">LED</button>
-      <button id="dark-bttn">DARK</button>
-    </div>
+      <div id="logo-container">
+        <img src="{{url_for('static', filename='SPL_logo.png')}}" alt="menu" id="spl-logo">
+      </div>
+      
+      <div id="info_msg">
+        <p>Tap the buttons below to change the LED effect displayed.</p>
+        <p>Some effects have options, such as speed.</p>
 
-    <button onclick="document.location='http://{{ self_ip }}:5000/end'">End Session</button>
+        <p><center>Time remaining:</center></p>
+        <div id="clock-container">
+          <div id="clock" style="color: rgb(230,0,0);"></div>
+        </div>
+        <p>To give someone else a turn, click "leave".</p>
+        <button id="leave-bttn" onclick="document.location='http://{{ self_ip }}:5000/end'">Leave</button>
+        <br>
+        <p>If you want to <b>stop controlling this display</b> and choose another display, click <a href="http://{{ self_ip }}:5000/chooseanother">Here</a></p>
+      </div>
+
+      <div id="button-container">
+        <p id="effect-title">Effects</p>
+
+        <div class="effect-button" alt="Rainbow" onclick="">
+          <img src="{{url_for('static', filename='icons/rainbow.png')}}" class="effect-img">
+          <p class="effect-name">Rainbow</p>
+        </div>
+
+      </div>
+
+    </div>
 
     <div id="footer">
       <p>Matthew Hengeveld 2020</p>
@@ -45,7 +63,31 @@
 
       var user_uuid = '{{ user_uuid }}';
       var user_ip = '{{ user_ip }}';
-      var time_end = {{ time_end }};
+      var time_left = parseInt("{{ time_wait }}");
+
+      function time_to_str(time) {
+        var time_left_s = time_left % 60;
+        var time_left_m = (time_left - time_left_s) / 60;
+        if (time_left_s < 10) {
+          return time_left_m.toString() + ":0" + time_left_s.toString();
+        } else {
+          return time_left_m.toString() + ":" + time_left_s.toString();
+        }
+      }
+
+      $("#clock").html(time_to_str(time_left));
+
+      console.log(user_uuid);
+
+      setInterval(() => {
+        time_left--;
+
+        $("#clock").html(time_to_str(time_left));
+
+        if (time_left < 0) {
+          window.location.replace("http://{{ self_ip }}:5000/ledctrl");
+        }
+      }, 1000);
 
       document.addEventListener('DOMContentLoaded', () => {
         // Connect to Socketio
@@ -71,11 +113,8 @@
       });
 
       setInterval(() => {
-        time_now = Math.floor( new Date().getTime() / 1000);
 
-        $("#time-left").html(time_end - time_now);
-
-        if (time_end - time_now < -5) {
+        if (time_left < -5) {
           window.location.replace("http://{{ self_ip }}:5000/end");
         }
       }, 1000);

@@ -12,6 +12,8 @@ import functools
 
 import env_config
 
+import RPi.GPIO
+
 numLEDs = env_config.NUM_LEDS
 client = opc.Client(env_config.OPC_ADDR)
 

@@ -368,8 +368,11 @@ def ledctrl():
   
     if not session.get('uuid') is None: # if uuid session variable exists
       if user_queue[0].get_uuid() == session.get('uuid'):
+
+        time_left = user_queue[0].get_time_end() - time.time()
+        time_left_ceil = math.trunc(time_left)
       
-        return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()))
+        return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()), time_wait=time_left_ceil)
 
       else:
 
@@ -402,8 +405,17 @@ def inject_selfip():
 # ON SCIKETIO CONNECT
 # -----------------------------------------------------
 @socketio.on('connect')
-def test_connect():
-  print("Client SocketIO connected")
+def io_connect():
+  controllercheck()
+  # print("Client SocketIO connected")
+
+# -----------------------------------------------------
+# ON SCIKETIO CONNECT
+# -----------------------------------------------------
+@socketio.on('disconnect')
+def io_disconnect():
+  controllercheck()
+  # print("Client SocketIO disconnected")
 
 # -----------------------------------------------------
 # ON SCIKETIO 'SWITCH CONTROL' EVENT

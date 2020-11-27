@@ -134,7 +134,7 @@ def controllercheck():
 
       if len(user_queue) > 0:
         print("next!")
-        for i in range(1, len(user_queue)):
+        for i in range(len(user_queue)):
           user_queue[i].decr_position()
         
         user_queue[0].set_ctrl(True)
@@ -223,22 +223,69 @@ def index():
 # -----------------------------------------------------
 @app.route("/end")
 def end():
-  send_zmq_msg("IDLE", None, None)
 
-  send_zmq_msg("Stop Controller", None, None)
+  user_uuid = session.get('uuid')
 
-  if not session.get('uuid') is None: # if uuid session variable exists
+  if not user_uuid is None: # if uuid session variable exists
     session.pop('uuid', None)
 
-  if len(user_queue) > 0:
-    user_queue.pop(0)
-    if len(user_queue) > 0:
-      user_queue[0].set_ctrl(True)
+    for i in range(len(user_queue)):
+      if str(user_queue[i].get_uuid()) == str(user_uuid):
+        
+        user_queue.pop(i)
+        
+        if i == 0:
 
-      for i in range(len(user_queue)):
-        user_queue[i].decr_position()
+          send_zmq_msg("IDLE", None, None)
+          send_zmq_msg("Stop Controller", None, None)
+
+          if len(user_queue) > 0:
+            user_queue[0].set_ctrl(True)
+            send_zmq_msg("New Controller", str(user_queue[0].get_uuid()), str(user_queue[0].get_IP()))
+
+        for k in range(i, len(user_queue)):
+
+          user_queue[k].decr_position()
+
+        break
 
   return redirect(url_for('.index'), code=307)
+
+
+# -----------------------------------------------------
+# CHOOSE ANOTHER
+# Ends session; removes controller from queue
+# Rediects to https://stratford.library.on.ca/lightson
+# -----------------------------------------------------
+@app.route("/chooseanother")
+def choose_antoher():
+
+  user_uuid = session.get('uuid')
+
+  if not user_uuid is None: # if uuid session variable exists
+    session.pop('uuid', None)
+
+    for i in range(len(user_queue)):
+      if str(user_queue[i].get_uuid()) == str(user_uuid):
+        
+        user_queue.pop(i)
+        
+        if i == 0:
+
+          send_zmq_msg("IDLE", None, None)
+          send_zmq_msg("Stop Controller", None, None)
+
+          if len(user_queue) > 0:
+            user_queue[0].set_ctrl(True)
+            send_zmq_msg("New Controller", str(user_queue[0].get_uuid()), str(user_queue[0].get_IP()))
+
+        for k in range(i, len(user_queue)):
+
+          user_queue[k].decr_position()
+
+        break
+
+  return redirect("https://stratford.library.on.ca/lightson")
 
 
 # -----------------------------------------------------
@@ -275,7 +322,7 @@ def addtoqueue():
 
     session['uuid'] = user.get_uuid()
 
-    return redirect(url_for('waitqueue', uuid=user.get_uuid))
+    return redirect(url_for('waitqueue', uuid=user.get_uuid()))
     #return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq)
   
   else:
@@ -283,7 +330,7 @@ def addtoqueue():
 
     print("Queue full!")
 
-    time_diff = (user_queue[0].get_time_end() - time.time()) + 10 # calcualte seconds until queue is not full, add 10 sec
+    time_diff = (user_queue[0].get_time_end() - time.time()) + (len(user_queue) * env_config.QUEUE_MAX_TIME) + 10 # calcualte seconds until queue is not full, add 10 sec
 
     time_wait = math.ceil(time_diff)   # round number up
 
@@ -293,22 +340,22 @@ def addtoqueue():
 # QUEUE WAIT
 # Wait for turn in queue
 # -----------------------------------------------------
-@app.route("/waitqueue")
+@app.route("/waitqueue", methods = ['GET', 'POST'])
 def waitqueue():
-  print("Waiting in queue")
-
   pos = None
   user_uuid = session.get('uuid')
-  print("Waiting with user uuid: ", user_uuid)
 
   for user in user_queue:
-    if user_uuid == request.args.get('uuid'):
+    if str(user_uuid) == str(user.get_uuid()):
       pos = user.get_position()
       break
 
   maxq = env_config.QUEUE_MAX
 
-  return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq, user_uuid=user_uuid, user_ip=request.remote_addr)
+  time_left = (user_queue[0].get_time_end() - time.time()) + ((pos-1) * env_config.QUEUE_MAX_TIME)
+  time_left_ceil = math.trunc(time_left/10)*10
+
+  return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq-1, user_uuid=user_uuid, user_ip=request.remote_addr, time_wait=time_left_ceil)
 
 # -----------------------------------------------------
 # LED CONTROL

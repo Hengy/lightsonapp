@@ -103,6 +103,20 @@ a {
     font-weight: 800;
 }
 
+#add-to-queue {
+    width: 50%;
+    height: 80px;
+    margin-left: 25%;
+    margin-top: 20px;
+    border-radius: 2px;
+    border-color: black;
+    border-width: 2px;
+    background-color:  rgba(0,160,221);
+    color: white;
+    font-size:36px;
+    font-weight: 600;
+}
+
 #footer {
     width: 100%;
     text-align: center;
@@ -114,7 +128,7 @@ a {
     width: 60%;
     margin-left: calc(20% - 10px);
     padding: 10px;
-    background-color: white;
+    background-color: black;
     border-radius: 12px;
     border-color: black;
 }

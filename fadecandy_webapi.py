@@ -71,19 +71,17 @@ def process_msg(jsonmsg, ledp, conn):
         exit()
         
     else:
-        print("Controller IP: ", user_IP)
         print("Controller UUID: ", user_UUID)
-        print("Msg IP: ", msg["IP"])
         print("Msg UUID: ", msg["uuid"])
 
         if msg["uuid"] == user_UUID:
             if msg["IP"] == user_IP:
-                print("MATCH!")
                 conn.send(jsonmsg)
             else:
                 print("NO IP MATCH")
         else:
             print("NO UUID MATCH")
+            
 
 
 def process_zmq_message(msg, conn):

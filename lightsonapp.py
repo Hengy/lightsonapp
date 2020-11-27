@@ -189,32 +189,13 @@ def index():
     queue_len = len(user_queue)
     if 'uuid' in session:
       # session in progress
-      return render_template("index.html", queue_len=queue_len, in_progress=True, in_time=True)
+      return redirect(url_for('ledctrl'), code=307)
     else:
       return render_template("index.html", queue_len=queue_len, in_progress=False, in_time=True)
 
   else:
 
     return render_template("index.html", in_time=False)
-
-
-
-# -----------------------------------------------------
-# HTTP Polling heartbeat
-# DEPRECATED - replaced by websockets
-# -----------------------------------------------------
-# @app.route("/heartbeat")
-# def hearbeat():
-  
-#   queue_empty = True
-#   if len(user_queue) > 0:
-#     queue_empty = False
-
-#   in_progress = False
-#   if 'uuid' in session:
-#     in_progress = True
-
-#   return render_template("index.html", queue_empty=queue_empty, in_progress=in_progress)
 
 
 # -----------------------------------------------------
@@ -296,45 +277,50 @@ def choose_antoher():
 def addtoqueue():
   
   user = None
-  if len(user_queue) == 0:
-    # empty queue, give control right away
+  user_uuid = session.get('uuid')
+  if not user_uuid is None: # if uuid session variable exists
+    controller = False
+    for user in user_queue:
+      if str(user_uuid) == str(user.get_uuid()):
+        controller = True
+        return redirect(url_for('ledctrl', uuid=user_uuid))
+    
+    if not controller:
+      return redirect(url_for('waitqueue', uuid=user_uuid))
 
-    print("Adding user. First in queue.")
-
-    user = Controller(request.remote_addr, len(user_queue), True)
-    user.set_time_end(time.time() + env_config.QUEUE_MAX_TIME)
-    user_queue.append(user)
-
-    session['uuid'] = user.get_uuid()
-
-    send_zmq_msg("New Controller", str(user.get_uuid()), str(request.remote_addr))
-
-    return redirect(url_for('ledctrl'), code=307)
-
-  elif len(user_queue) < env_config.QUEUE_MAX:
-    # queue not empty, add to queue
-
-    print("Adding user to queue. Position ", len(user_queue) + 1)
-
-    user = Controller(request.remote_addr, len(user_queue), False)
-    user.set_time_end(time.time() + (len(user_queue) * env_config.QUEUE_MAX_TIME))
-    user_queue.append(user)
-
-    session['uuid'] = user.get_uuid()
-
-    return redirect(url_for('waitqueue', uuid=user.get_uuid()))
-    #return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq)
-  
   else:
-    # queue is full
+    if len(user_queue) == 0:
+      # empty queue, give control right away
 
-    print("Queue full!")
+      print("Adding user. First in queue.")
 
-    time_diff = (user_queue[0].get_time_end() - time.time()) + (len(user_queue) * env_config.QUEUE_MAX_TIME) + 10 # calcualte seconds until queue is not full, add 10 sec
+      user = Controller(request.remote_addr, len(user_queue), True)
+      user.set_time_end(time.time() + env_config.QUEUE_MAX_TIME)
+      user_queue.append(user)
 
-    time_wait = math.ceil(time_diff)   # round number up
+      session['uuid'] = user.get_uuid()
 
-    return render_template("queuefull.html", queue_full=True, wait_time=time_wait)
+      send_zmq_msg("New Controller", str(user.get_uuid()), str(request.remote_addr))
+
+      return redirect(url_for('ledctrl'), code=307)
+
+    elif len(user_queue) < env_config.QUEUE_MAX:
+      # queue not empty, add to queue
+
+      print("Adding user to queue. Position ", len(user_queue) + 1)
+
+      user = Controller(request.remote_addr, len(user_queue), False)
+      user.set_time_end(time.time() + (len(user_queue) * env_config.QUEUE_MAX_TIME))
+      user_queue.append(user)
+
+      session['uuid'] = user.get_uuid()
+
+      return redirect(url_for('waitqueue', uuid=user.get_uuid()))
+      #return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq)
+    
+    else:
+      # queue is full
+      return redirect(url_for('queuefull'))
 
 # -----------------------------------------------------
 # QUEUE WAIT
@@ -353,9 +339,23 @@ def waitqueue():
   maxq = env_config.QUEUE_MAX
 
   time_left = (user_queue[0].get_time_end() - time.time()) + ((pos-1) * env_config.QUEUE_MAX_TIME)
-  time_left_ceil = math.trunc(time_left/10)*10
+  time_left_ceil = math.trunc(time_left)
 
   return render_template("queuewait.html", queue_full=False, queue_pos=pos, max_queue=maxq-1, user_uuid=user_uuid, user_ip=request.remote_addr, time_wait=time_left_ceil)
+
+# -----------------------------------------------------
+# QUEUE FULL
+# Queue is full
+# -----------------------------------------------------
+@app.route("/queuefull")
+def queuefull():
+
+  time_diff = (user_queue[0].get_time_end() - time.time()) + ((len(user_queue)-1) * env_config.QUEUE_MAX_TIME) + 2 # calcualte seconds until queue is not full, add 10 sec
+
+  time_wait = math.ceil(time_diff)   # round number up
+
+  return render_template("queuefull.html", wait_time=time_wait)
+
 
 # -----------------------------------------------------
 # LED CONTROL

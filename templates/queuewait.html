@@ -26,8 +26,8 @@
 
           <div id="info_msg">
             <p>Currently, there is someone else interacting with this display.</p>
-            {% if queue_pos == 2 %}
-              <h1>You're next!</h1>
+            {% if queue_pos == 1 %}
+              <h1><center>You're next!</center></h1>
             {% else %}
               <p>You are in position {{ queue_pos }} of {{ max_queue }}</p>
             {% endif %}
@@ -35,18 +35,17 @@
               <div id="clock"></div>
             </div>
             <p><center>seconds left.</center></p>
-            <p>Once it is your turn, you will automatically sent to the control page.</p>
+            <p>Once it is your turn, you will automatically be sent to the control page.</p>
             <h3>Do not close this page!</h3>
             <p>If you want to <b>exit the queue</b> and choose another display, click <a href="http://{{ self_ip }}:5000/chooseanother">Here</a></p>
           </div>
 
       </div>
 
-      <p id="menu-title">WAITING</p>
-      <p>You have been added to the queue. Your position is: {{ queue_pos }} of {{ max_queue }}</p>
-      <button onclick="document.location='http://{{ self_ip }}:5000/addtoqueue'">Try Again</button>
-      <br>
-      <button onclick="document.location='http://{{ self_ip }}:5000/end'">End Session</button>
+    </div>
+
+    <div id="footer">
+      <p>Matthew Hengeveld 2020</p>
     </div>
 
 
@@ -59,7 +58,7 @@
 
       var user_uuid = '{{ user_uuid }}';
       var user_ip = '{{ user_ip }}';
-      var time_left = parseInt("{{ time_wait }}") + 10;
+      var time_left = parseInt("{{ time_wait }}");
 
       function time_to_str(time) {
         var time_left_s = time_left % 60;

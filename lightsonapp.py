@@ -125,8 +125,10 @@ def controllercheck():
   popped = False
 
   if len(user_queue) > 0:
-    if user_queue[0].get_time_end() <= time.time(): # if controller time had expired
+    if user_queue[0].get_time_end() < time.time(): # if controller time had expired
       print("new controller!")
+
+      # send_zmq_msg("IDLE", None, None)
 
       send_zmq_msg("Stop Controller", None, None)
       user_queue.pop(0)
@@ -139,7 +141,7 @@ def controllercheck():
         
         user_queue[0].set_ctrl(True)
         user_queue[0].set_time_end(time.time() + env_config.QUEUE_MAX_TIME)
-        send_zmq_msg("IDLE", None, None)
+        
         send_zmq_msg("New Controller", str(user_queue[0].get_uuid()), str(user_queue[0].get_IP()))
       
   return popped
@@ -169,7 +171,7 @@ def waitcheck(uuid):
 def send_zmq_msg(msg, uuid, ip):
   # set up Zero MQ connection to websocket server
   socket = ws_context.socket(zmq.PAIR)
-  #socket.connect("tcp://127.0.0.1:62830")
+  
   socket.connect(env_config.ZMQ_SOCKET_IP + ":" + env_config.ZMQ_SOCKET_PORT)
 
   response = {"message":msg, "uuid":uuid, "IP": ip}
@@ -216,8 +218,7 @@ def end():
         user_queue.pop(i)
         
         if i == 0:
-
-          send_zmq_msg("IDLE", None, None)
+          # send_zmq_msg("IDLE", None, None)
           send_zmq_msg("Stop Controller", None, None)
 
           if len(user_queue) > 0:
@@ -252,8 +253,7 @@ def choose_antoher():
         user_queue.pop(i)
         
         if i == 0:
-
-          send_zmq_msg("IDLE", None, None)
+          # send_zmq_msg("IDLE", None, None)
           send_zmq_msg("Stop Controller", None, None)
 
           if len(user_queue) > 0:
@@ -366,23 +366,31 @@ def ledctrl():
 
   if check_in_time():
   
-    if not session.get('uuid') is None: # if uuid session variable exists
-      if user_queue[0].get_uuid() == session.get('uuid'):
+    if len(user_queue) > 0:
 
-        time_left = user_queue[0].get_time_end() - time.time()
-        time_left_ceil = math.trunc(time_left)
+      if not session.get('uuid') is None: # if uuid session variable exists
+        if user_queue[0].get_uuid() == session.get('uuid'):
+
+          time_left = user_queue[0].get_time_end() - time.time()
+          time_left_ceil = math.trunc(time_left)
+        
+          return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()), time_wait=time_left_ceil)
+
+        else:
+
+          print("ERROR! Should not be able to control LEDs at this time")
+
+          return redirect(url_for('end'), code=307)
       
-        return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()), time_wait=time_left_ceil)
-
       else:
 
-        print("ERROR! Should not be able to control LEDs at this time")
+        print("ERROR!")
 
         return redirect(url_for('end'), code=307)
-    
+
     else:
 
-      print("ERROR!")
+      print("ERROR! Should not be able to control LEDs at this time")
 
       return redirect(url_for('end'), code=307)
 

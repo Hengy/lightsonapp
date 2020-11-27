@@ -39,7 +39,7 @@
       <div id="button-container">
         <p id="effect-title">Effects</p>
 
-        <div class="effect-button" alt="Rainbow" onclick="">
+        <div class="effect-button" alt="Rainbow" onclick="display_effect('RAINBOW')">
           <img src="{{url_for('static', filename='icons/rainbow.png')}}" class="effect-img">
           <p class="effect-name">Rainbow</p>
         </div>
@@ -84,8 +84,8 @@
 
         $("#clock").html(time_to_str(time_left));
 
-        if (time_left < 0) {
-          window.location.replace("http://{{ self_ip }}:5000/ledctrl");
+        if (time_left < -5) {
+          window.location.replace("http://{{ self_ip }}:5000/end");
         }
       }, 1000);
 
@@ -127,20 +127,10 @@
         console.log('WebSocket error: ' + error);
       };
 
-      $("#idle-bttn").click(function() {
-          msg = {"CMD":"IDLE", "uuid":user_uuid, "IP":user_ip}
-          ledctrl_socket.send(JSON.stringify(msg));
-      });
-
-      $("#LED-bttn").click(function() {
-          msg = {"CMD":"LED", "uuid":user_uuid, "IP":user_ip}
-          ledctrl_socket.send(JSON.stringify(msg));
-      });
-
-      $("#dark-bttn").click(function() {
-          msg = {"CMD":"DARK", "uuid":user_uuid, "IP":user_ip}
-          ledctrl_socket.send(JSON.stringify(msg));
-      });
+      function display_effect(effect_cmd) {
+        msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip}
+        ledctrl_socket.send(JSON.stringify(msg));
+      }
 
     </script>
 

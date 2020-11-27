@@ -20,12 +20,12 @@
 @import url('https://fonts.googleapis.com/css2?family=Neucha&display=swap');
 
 html {
-    width: 98vw;
+    width: 97vw;
     /*overflow-x: hidden;*/
 }
 
 body {
-    width: 98vw;
+    width: 97vw;
     font-family: 'droid_sansregular', Arial, sans-serif;
 }
 
@@ -82,7 +82,7 @@ body {
 }
 
 #info_msg {
-    width: calc(80% - 40px);
+    width: calc(80% - 20px);
     margin-top: 20px;
     margin-left: calc(10% - 10px);
     padding: 10px 20px 20px 20px;
@@ -106,9 +106,7 @@ a {
 #add-to-queue-large {
     width: 100%;
     height: 160px;
-    border-radius: 4px;
-    border-color: black;
-    border-width: 4px;
+    border-width: 0px;
     background-color:  rgba(0,160,221);
     color: white;
     font-size:72px;

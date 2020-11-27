@@ -98,9 +98,10 @@ def process_zmq_message(msg, conn):
     if recv_msg["message"] == "Stop Controller":
         user_IP = None
         user_UUID = None
+        conn.send(json.dumps({"CMD":"IDLE"}))
 
     if recv_msg["message"] == "IDLE":
-        print(recv_msg)
+        print("IDLE", recv_msg)
         conn.send(json.dumps({"CMD":"IDLE"}))
 
 

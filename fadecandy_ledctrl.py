@@ -62,7 +62,7 @@ class LEDController():
                 if conn.poll():
                     jsonmsg = conn.recv()
                     msg = json.loads(jsonmsg)
-                    if msg["CMD"] == "LED":
+                    if msg["CMD"] == "RAINBOW":
                         print("changing state...")
                         self._state = 3
                     elif msg["CMD"] == "DARK":

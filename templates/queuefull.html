@@ -27,8 +27,8 @@
           <h1>Sorry!</h1>
           <p>The queue for this display is currently full.</p>
           <div id="time_left"></div>
-          <button id="add-to-queue" onclick="document.location='http://{{ self_ip }}:5000/addtoqueue'">GO!</button>
-          <p>If you want to <b>exit the queue</b> and choose another display, click <a href="http://{{ self_ip }}:5000/chooseanother">Here</a></p>
+          <button id="add-to-queue" onclick="document.location='http://{{ self_ip }}{{ self_port }}/addtoqueue'">GO!</button>
+          <p>If you want to <b>exit the queue</b> and choose another display, click <a href="http://{{ self_ip }}{{ self_port }}/chooseanother">Here</a></p>
         </div>
 
     </div>

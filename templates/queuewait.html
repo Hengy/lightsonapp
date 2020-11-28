@@ -37,7 +37,7 @@
             <p><center>seconds left.</center></p>
             <p>Once it is your turn, you will automatically be sent to the control page.</p>
             <h3>Do not close this page!</h3>
-            <p>If you want to <b>exit the queue</b> and choose another display, click <a href="http://{{ self_ip }}:5000/chooseanother">Here</a></p>
+            <p>If you want to <b>exit the queue</b> and choose another display, click <a href="http://{{ self_ip }}{{ self_port }}/chooseanother">Here</a></p>
           </div>
 
       </div>
@@ -80,13 +80,13 @@
         $("#clock").html(time_to_str(time_left));
 
         if (time_left < 0) {
-          window.location.replace("http://{{ self_ip }}:5000/ledctrl");
+          window.location.replace("http://{{ self_ip }}{{ self_port }}/ledctrl");
         }
       }, 1000);
 
       document.addEventListener('DOMContentLoaded', () => {
         // Connect to Socketio
-        var flask_socket = io.connect('http://{{ self_ip }}:5000');
+        var flask_socket = io.connect('http://{{ self_ip }}{{ self_port }}');
 
         // When connected
         flask_socket.on('connect', () => {
@@ -100,7 +100,7 @@
         function wait_handler(data) {
           msg = JSON.parse(data);
           if (msg.wait_result == true) {
-            window.location.replace("http://{{ self_ip }}:5000/ledctrl");
+            window.location.replace("http://{{ self_ip }}{{ self_port }}/ledctrl");
           }
         }
 

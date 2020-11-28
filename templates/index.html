@@ -48,11 +48,11 @@
       <div id="ctrls-container">
         {% if in_time %}
           {% if in_progress %}
-            <button id="session-bttn" onclick="document.location='http://{{ self_ip }}:5000/ledctrl'">Resume Session</button>
+            <button id="session-bttn" onclick="document.location='http://{{ self_ip }}{{ self_port }}/ledctrl'">Resume Session</button>
 
-            <button id="session-bttn" onclick="document.location='http://{{ self_ip }}:5000/end'">End Session</button>
+            <button id="session-bttn" onclick="document.location='http://{{ self_ip }}{{ self_port }}/end'">End Session</button>
           {% else %}
-            <button id="add-to-queue-large" onclick="document.location='http://{{ self_ip }}:5000/addtoqueue'">GO!</button>
+            <button id="add-to-queue-large" onclick="document.location='http://{{ self_ip }}{{ self_port }}/addtoqueue'">GO!</button>
           {% endif %}
         {% endif %}
       </div>

@@ -406,7 +406,7 @@ def ledctrl():
 # -----------------------------------------------------
 @app.context_processor
 def inject_selfip():
-    return dict(self_ip=env_config.SELF_IP)
+    return dict(self_ip=env_config.SELF_IP, self_port=env_config.SELF_PORT)
 
 
 # -----------------------------------------------------

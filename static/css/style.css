@@ -179,6 +179,7 @@ a {
     border-width: 2px;
     border-style: solid;
     background-color: rgba(0,160,221,0.1);
+    margin-bottom: 20px;
 }
 
 .effect-button:active {
@@ -206,6 +207,18 @@ a {
     width: calc(80% - 110px);
     height: 40px;
     margin-top: 24px;
+    margin-bottom: 0px;
+    float: left;
+    font-family: 'neucharegular', Arial, sans-serif;
+    font-size: 36px;
+    color: rgba(91,51,147);
+    padding-left: 20px;
+}
+
+.effect-name-2 {
+    width: calc(80% - 110px);
+    height: 40px;
+    margin-top: 6px;
     margin-bottom: 0px;
     float: left;
     font-family: 'neucharegular', Arial, sans-serif;

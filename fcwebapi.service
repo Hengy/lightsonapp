@@ -1,0 +1,15 @@
+[Unit]
+Description=FadecandyWebAPI
+After=network.target
+StartLimitIntervalSec=0
+
+[Service]
+User=pi
+Group=www-data
+Restart=always
+RestartSec=1
+WorkingDirectory=/home/pi/flask_apps/lightsonapp
+ExecStart=python3 fadecandy_webapi.py
+
+[Install]
+WantedBy=multi-user.target

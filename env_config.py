@@ -44,7 +44,7 @@ OPC_ADDR = 'localhost:7890' # MUST match fcserver.json in /usr/local/bin
 # QUEUE
 #------------------------------------------------------
 
-QUEUE_MAX = 1           # max number of users. This includes those waiting, and the controller; if full, user will be asked to try again later
+QUEUE_MAX = 3           # max number of users. This includes those waiting, and the controller; if full, user will be asked to try again later
 QUEUE_MAX_TIME = 300    # time (in seconds) a user has to control LEDs before control is passed to next in queue
 
 #------------------------------------------------------

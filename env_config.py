@@ -6,6 +6,7 @@
 # Matt H Dev
 SELF_IP =  "192.168.0.41"  # set to static IP address of Raspberry Pi
 SELF_PORT = ":5000"
+# SELF_PORT = ""
 
 # SPL
 # SELF_IP =  "192.168.1.190"  # set to static IP address of Raspberry Pi
@@ -57,7 +58,7 @@ TIME_OFF = 23       # hour to turn off (24 hour time) 23 = 11PM
 # LED SETUP
 #------------------------------------------------------
 
-NUM_LEDS = 64          # TOTAL number of LEDs in window
+NUM_LEDS = 320          # TOTAL number of LEDs in window
 
 FC_CAHNNELS = 3         # number of Fadecandy OPC channels - 1 OPC channel per window for easy addressing!
 

@@ -51,15 +51,20 @@ QUEUE_MAX_TIME = 300    # time (in seconds) a user has to control LEDs before co
 # TIME ON/OFF
 #------------------------------------------------------
 
-TIME_ON = 17        # hour to turn on (24 hour time) 17 = 5PM
+TIME_ON = 1        # hour to turn on (24 hour time) 17 = 5PM
 TIME_OFF = 23       # hour to turn off (24 hour time) 23 = 11PM
 
 #------------------------------------------------------
 # LED SETUP
 #------------------------------------------------------
 
-NUM_LEDS = 320          # TOTAL number of LEDs in window
+NUM_LEDS = 64          # TOTAL number of LEDs in window
 
 FC_CAHNNELS = 3         # number of Fadecandy OPC channels - 1 OPC channel per window for easy addressing!
 
 CHAN_1_NUM_LEDS = 236   # number of LEDs in channel
+
+# idle LED effect
+IDLE_COLOR_CHANGE_TIME = 20
+IDLE_SYNC_OFFSET01 = 0.4
+IDLE_MODE_CHANGE_TIME = 30

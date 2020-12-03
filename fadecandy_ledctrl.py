@@ -65,7 +65,7 @@ class LEDController():
         self.effect_delay = 20 # ms
 
         # idle
-        self.idle_mode = 3
+        self.idle_mode = 2
         self.idle_mode_max = 4
         self.idle_mode_time = 0
         self.idle_change_time = 0
@@ -75,6 +75,15 @@ class LEDController():
         self.idle_build_dir = True
         self.idle_build_array = []
         self.idle_build_array2 = []
+        self.idle_build_max_delay = 1500
+        self.idle_build_chunk_min = 6
+        self.idle_build_chunk_max = 12
+        self.idle_build_speed = 0.87
+        self.idle_rotate_panes = 4
+        self.idle_rotate_pane1 = [0,49]   #[0,235]
+        self.idle_rotate_pane2 = [50,99]   #[236,471]
+        self.idle_rotate_pane3 = [100,149]   #[472,707]
+        self.idle_rotate_pane4 = [150,191]   #[708,917]
 
         # Rainbow Fade In
         self.state3_color = 0
@@ -108,6 +117,17 @@ class LEDController():
         self.state8_color = self.state5_step
         self.state8_color2 = 0
         self.state8_color3 = 1 - self.state5_step
+
+        # build up/down
+        self.state9_dir = True
+        self.state9_array = []
+        self.state9_array2 = []
+        self.state9_max_delay = 1500
+        self.state9_chunk_min = 6
+        self.state9_chunk_max = 12
+        self.state9_speed = 0.87
+        self.state9_color = 0
+        self.state9_step = 10
         # ----------------------------------------------------------------------
 
         print("LED Controller initialized")
@@ -151,6 +171,26 @@ class LEDController():
                     elif msg["CMD"] == "TRIPLECHASE":
                         self.effect_delay = 25
                         self._state = 8
+                    elif msg["CMD"] == "BUILDUPDOWN":
+                        self.effect_delay = self.state9_max_delay
+
+                        self.state9_array = []
+                        self.state9_color += self.state9_step
+
+                        # build random 'chunk' list
+                        done = False
+                        pos = 0
+                        while not done:
+                            end = pos + random.randint(self.state9_chunk_min,self.state9_chunk_max)
+                            if end >= numLEDs:
+                                end = numLEDs - 1
+                            self.idle_build_array.append((pos, end))
+                            if end != numLEDs - 1:
+                                pos = end
+                            else:
+                                done = True
+
+                        self._state = 9
                     elif msg["CMD"] == "DARK":
                         self.effect_delay = 20
                         print("turning off LEDs...")
@@ -182,6 +222,8 @@ class LEDController():
                     self.dualchase()
                 elif self._state == 8:
                     self.triplechase()
+                elif self._state == 9:
+                    self.build_up_down()
                 else:
                     self.idle_leds()
 
@@ -201,18 +243,39 @@ class LEDController():
             self.idle_color = random.randint(0,2)
             self.idle_brightness = random.randint(55,76)/100
 
+            if self.idle_mode == 4:
+                self.effect_delay = self.idle_build_max_delay
+                self.idle_color = random.choice([86/360,196/360,280/360,86/360,196/360,280/360])
+                self.idle_build_array = []
+
+                # build random 'chunk' list
+                done = False
+                pos = 0
+                while not done:
+                    end = pos + random.randint(self.idle_build_chunk_min,self.idle_build_chunk_max)
+                    if end >= numLEDs:
+                        end = numLEDs - 1
+                    self.idle_build_array.append((pos, end))
+                    if end != numLEDs - 1:
+                        pos = end
+                    else:
+                        done = True
+
         if self.idle_mode_time <= time.time():
             self.idle_mode_time = time.time() + env_config.IDLE_MODE_CHANGE_TIME
             self.idle_mode += 1
+            
             if self.idle_mode > self.idle_mode_max:
                 self.idle_mode = 1
+            # print("MODE: ", self.idle_mode)
 
             if self.idle_mode == 1:
                 self.idle_mode_time = time.time() + env_config.IDLE_MODE_CHANGE_TIME
             elif self.idle_mode == 4:
 
                 self.pixels = [(0,0,0)] * numLEDs
-                self.effect_delay = 600
+                self.effect_delay = self.idle_build_max_delay
+                self.idle_color = random.choice([86/360,196/360,280/360,86/360,196/360,280/360,-1])
 
                 self.idle_build_array = []
 
@@ -220,8 +283,7 @@ class LEDController():
                 done = False
                 pos = 0
                 while not done:
-                    print(self.idle_build_array)
-                    end = pos + random.randint(2,6)
+                    end = pos + random.randint(self.idle_build_chunk_min,self.idle_build_chunk_max)
                     if end >= numLEDs:
                         end = numLEDs - 1
                     self.idle_build_array.append((pos, end))
@@ -236,6 +298,7 @@ class LEDController():
         if self.idle_mode == 1:
             self.idle_static()
         elif self.idle_mode == 2:
+            self.effect_delay = random.choice([2000,2500,3000])
             self.idle_rotate()
         elif self.idle_mode == 3:
             self.idle_rainbow()
@@ -275,7 +338,25 @@ class LEDController():
             self.pixels = [new_color] * numLEDs
 
     def idle_rotate(self):
-        self.pixels = [(0,0,0)] * numLEDs
+        pane = random.randint(0,self.idle_rotate_panes-1)
+        new_color_index = random.choice([86/360,196/360,280/360,-1,86/360,196/360,280/360])
+        if new_color_index != -1:
+            new_color = HSVtoRGB(new_color_index,1,0.7)
+        else:
+            new_color = (0,0,0)
+
+        if pane == 0:
+            for i in range(self.idle_rotate_pane1[0],self.idle_rotate_pane1[1]):
+                self.pixels[i] = new_color
+        elif pane == 1:
+            for i in range(self.idle_rotate_pane2[0],self.idle_rotate_pane2[1]):
+                self.pixels[i] = new_color
+        elif pane == 2:
+            for i in range(self.idle_rotate_pane3[0],self.idle_rotate_pane3[1]):
+                self.pixels[i] = new_color
+        else:
+            for i in range(self.idle_rotate_pane4[0],self.idle_rotate_pane4[1]):
+                self.pixels[i] = new_color
 
     def idle_rainbow(self):
         new_color = HSVtoRGB(self.idle_color,1,0.7)
@@ -296,7 +377,8 @@ class LEDController():
                 self.idle_build_array2.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = new_color
-            self.effect_delay -= self.effect_delay*0.1
+            if self.effect_delay > 80:
+                self.effect_delay = self.effect_delay*self.idle_build_speed
         else:
             pick = random.randint(0, len(self.idle_build_array2)-1)
             if len(self.idle_build_array2) > 0:
@@ -304,23 +386,24 @@ class LEDController():
                 self.idle_build_array.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = (0,0,0)
-            self.effect_delay -= self.effect_delay*0.1
+            if self.effect_delay > 80:
+                self.effect_delay = self.effect_delay*self.idle_build_speed
 
         if len(self.idle_build_array) == 0:
             self.idle_build_dir = False
-            self.effect_delay = 600
+            self.effect_delay = self.idle_build_max_delay
         if len(self.idle_build_array2) == 0:
             self.idle_build_dir = True
-            self.effect_delay = 600
+            self.effect_delay = self.idle_build_max_delay
 
             self.idle_build_array = []
+            self.idle_color = random.choice([86/360,196/360,280/360,86/360,196/360,280/360])
 
             # build random 'chunk' list
             done = False
             pos = 0
             while not done:
-                print(self.idle_build_array)
-                end = pos + random.randint(2,6)
+                end = pos + random.randint(self.idle_build_chunk_min,self.idle_build_chunk_max)
                 if end >= numLEDs:
                     end = numLEDs - 1
                 self.idle_build_array.append((pos, end))
@@ -483,8 +566,6 @@ class LEDController():
             self.state8_position3 = -10
             self.state8_color3 += self.state5_step * 3
 
-
-
     # theatre chase
     def theatre_chase(self):
 
@@ -506,4 +587,51 @@ class LEDController():
         if self.state6_position == 0:
             self.state6_position = 11
 
+
+
+    # Build up/down
+    def build_up_down(self):
+        new_color = HSVtoRGB(self.state9_color,1,0.7)
+
+        if self.state9_dir:
+            pick = random.randint(0, len(self.state9_array)-1)
+            if len(self.state9_array) > 0:
+                section = self.state9_array.pop(pick)
+                self.state9_array2.append(section)
+                for i in range(section[0],section[1]):
+                    self.pixels[i] = new_color
+            if self.effect_delay > 80:
+                self.effect_delay = self.effect_delay*self.state9_speed
+        else:
+            pick = random.randint(0, len(self.state9_array2)-1)
+            if len(self.state9_array2) > 0:
+                section = self.state9_array2.pop(pick)
+                self.state9_array.append(section)
+                for i in range(section[0],section[1]):
+                    self.pixels[i] = (0,0,0)
+            if self.effect_delay > 80:
+                self.effect_delay = self.effect_delay*self.state9_speed
+
+        if len(self.state9_array) == 0:
+            self.state9_dir = False
+            self.effect_delay = self.state9_max_delay
+        if len(self.state9_array2) == 0:
+            self.state9_dir = True
+            self.effect_delay = self.state9_max_delay
+
+            self.state9_array = []
+            self.state9_color += self.state9_step
+
+            # build random 'chunk' list
+            done = False
+            pos = 0
+            while not done:
+                end = pos + random.randint(self.state9_chunk_min,self.state9_chunk_max)
+                if end >= numLEDs:
+                    end = numLEDs - 1
+                self.idle_build_array.append((pos, end))
+                if end != numLEDs - 1:
+                    pos = end
+                else:
+                    done = True
 

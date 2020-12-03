@@ -1,3 +1,7 @@
 env_config.py
 .pyc
 .pyo
+__pycache__/env_config.cpython-37.pyc
+__pycache__/fadecandy_ledctrl.cpython-37.pyc
+__pycache__/lightsonapp.cpython-37.pyc
+__pycache__/opc.cpython-37.pyc

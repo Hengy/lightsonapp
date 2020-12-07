@@ -103,7 +103,7 @@ class LEDController():
         self.effect_delay = 500 # ms
 
         # routine1
-        self.state3_toggle = False
+        self.state3_states = [0,0,0] # R,G,B
 
         # ----------------------------------------------------------------------
 
@@ -166,19 +166,23 @@ class LEDController():
         for i in range(len(env_config.RELAY_PINS)):
             GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_OFF)
 
-    # fades in to color; color switches to next in rainbow
+    # chooses one of 6 combinations
     def routine1(self):
 
-        if self.state3_toggle:
-            self.state3_toggle = False
-        else:
-            self.state3_toggle = True
+        self.state3_states = [0,0,0]
 
-        for i in range(len(env_config.RELAY_PINS)):
+        k = int(random.randint(0,19)/10)
+        if k > 0:
+            m = int(random.randint(0,29)/10)
+            self.state3_states[m] = 1
+        
+        n = int(random.randint(0,29)/10)
+        self.state3_states[n] = 1
 
-            if self.state3_toggle:
+
+        for i in range(3):
+            if self.state3_states[i]:
                 GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_ON)
             else:
                 GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_OFF)
-
   

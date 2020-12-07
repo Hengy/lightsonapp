@@ -64,9 +64,8 @@ LIB_PURPLE_B = 148
 def check_in_time():
   in_time = False
   hour_now = datetime.datetime.now().hour
-  minute_now = datetime.datetime.now().minute
-  if hour_now >= env_config.TIME_ON_HOUR and minute_now >= env_config.TIME_ON_MIN:
-    if hour_now <= env_config.TIME_OFF_HOUR and minute_now <= env_config.TIME_OFF_MIN:
+  if hour_now >= env_config.TIME_ON_HOUR:
+    if hour_now <= env_config.TIME_OFF_HOUR:
       in_time = True
 
   return in_time
@@ -94,7 +93,7 @@ class LEDController():
         # state machine variables
         # ----------------------------------------------------------------------
         # state: 0 = IDLE; 1 = BLANK; 2 = STREAMING; > 3 = LED Effect modes
-        self._state = 3
+        self._state = 0
         
         # message polling
         self.poll_period = 10 # polling period in ms
@@ -131,7 +130,7 @@ class LEDController():
                     jsonmsg = conn.recv()
                     msg = json.loads(jsonmsg)
                     if msg["CMD"] == "ROUTINE1":
-                        self.effect_delay = 500
+                        self.effect_delay = 1000
                         self._state = 3
                     elif msg["CMD"] == "IDLE":
                         self.effect_delay = 50

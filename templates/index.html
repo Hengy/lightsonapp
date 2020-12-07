@@ -35,6 +35,9 @@
             <p>To start interacting, press the GO! button below.</p>
             <p>If someone is already interacting with this display, you will be added to the queue. Each person gets 5 minutes.</p>
             <p>To try one of the other displays, click <a href="https://stratford.library.on.ca/lightson">Here</a></p>
+            {% if dmx == 1 %}
+              <p>This is the "Spotlight Display". Watch for the colours projected on the ground in front of the library!</p>
+            {% endif %}
           </div>
         {% else %}
           <div id="welcome_msg">

@@ -57,9 +57,8 @@ LIB_PURPLE_B = 148
 def check_in_time():
   in_time = False
   hour_now = datetime.datetime.now().hour
-  minute_now = datetime.datetime.now().minute
-  if hour_now >= env_config.TIME_ON_HOUR and minute_now >= env_config.TIME_ON_MIN:
-    if hour_now <= env_config.TIME_OFF_HOUR and minute_now <= env_config.TIME_OFF_MIN:
+  if hour_now >= env_config.TIME_ON_HOUR:
+    if hour_now <= env_config.TIME_OFF_HOUR:
       in_time = True
 
   return in_time

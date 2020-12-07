@@ -23,7 +23,12 @@
       </div>
       
       <div id="info_msg">
-        <p>Tap the buttons below to change the LED effect displayed.</p>
+        {% if dmx == 0 %}
+          <p>Tap the buttons below to change the LED effect displayed.</p>
+        {% endif %}
+        {% if dmx == 1 %}
+          <p>Tap the buttons below to change the light routine displayed.</p>
+        {% endif %}
         <p>Some effects have options, such as speed.</p>
 
         <p><center>Time remaining:</center></p>
@@ -36,6 +41,7 @@
         <p>If you want to <b>stop controlling this display</b> and choose another display, click <a href="http://{{ self_ip }}{{ self_port }}/chooseanother">Here</a></p>
       </div>
 
+      {% if dmx == 0 %}
       <div id="button-container">
         <p id="effect-title">Effects</p>
 
@@ -75,6 +81,18 @@
         </div>
 
       </div>
+      {% endif %}
+
+      {% if dmx == 1 %}
+      <div id="button-container"></div>
+        <p id="effect-title">Routines</p>
+
+        <div class="effect-button" alt="Colours!" onclick="display_effect('ROUTINE1')">
+          <img src="{{url_for('static', filename='icons/colours1.png')}}" class="effect-img">
+          <p class="effect-name-2">Colours!</p>
+        </div>
+      </div>
+      {% endif %}
 
     </div>
 

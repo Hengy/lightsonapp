@@ -111,9 +111,8 @@ ws_context = zmq.Context()
 def check_in_time():
   in_time = False
   hour_now = datetime.datetime.now().hour
-  minute_now = datetime.datetime.now().minute
-  if hour_now >= env_config.TIME_ON_HOUR and minute_now >= env_config.TIME_ON_MIN:
-    if hour_now <= env_config.TIME_OFF_HOUR and min_now <= env_config.TIME_OFF_MIN:
+  if hour_now >= env_config.TIME_ON_HOUR:
+    if hour_now <= env_config.TIME_OFF_HOUR:
       in_time = True
 
   return in_time
@@ -194,7 +193,7 @@ def index():
       # session in progress
       return redirect(url_for('ledctrl'), code=307)
     else:
-      return render_template("index.html", queue_len=queue_len, in_progress=False, in_time=True)
+      return render_template("index.html", queue_len=queue_len, in_progress=False, in_time=True, dmx=env_config.PI_DISPLAY_TYPE)
 
   else:
 
@@ -375,8 +374,9 @@ def ledctrl():
 
           time_left = user_queue[0].get_time_end() - time.time()
           time_left_ceil = math.trunc(time_left)
-        
-          return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()), time_wait=time_left_ceil)
+          dmx = env_config.PI_DISPLAY_TYPE
+
+          return render_template("ledctrl.html", user_uuid=session.get('uuid'), user_ip=str(request.remote_addr), time_end=math.floor(user_queue[0].get_time_end()), time_wait=time_left_ceil, dmx=dmx)
 
         else:
 

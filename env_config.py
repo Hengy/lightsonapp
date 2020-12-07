@@ -51,7 +51,7 @@ QUEUE_MAX_TIME = 300    # time (in seconds) a user has to control LEDs before co
 # TIME ON/OFF
 #------------------------------------------------------
 
-TIME_ON_HOUR = 1       # hour to turn on (24 hour time) 17 = 5PM
+TIME_ON_HOUR = 17       # hour to turn on (24 hour time) 17 = 5PM
 TIME_OFF_HOUR = 23      # hour to turn off (24 hour time) 23 = 11PM
 
 #------------------------------------------------------

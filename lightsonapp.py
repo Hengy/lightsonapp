@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, session, url_for, redirect
 from flask_socketio import SocketIO, emit
 from flask_socketio import send as sendio
+from flask import send_from_directory
 
 import os
 import subprocess
@@ -399,9 +400,6 @@ def ledctrl():
   else:
 
     return redirect(url_for('end'), code=307)
-
-  
-
 
 # -----------------------------------------------------
 # Gives all templates the SELF_IP variable

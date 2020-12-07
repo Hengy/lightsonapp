@@ -11,6 +11,8 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+    <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
+
     <title>Lights On!</title>
 
   </head>
@@ -89,7 +91,7 @@
 
         <div class="effect-button" alt="Colours!" onclick="display_effect('ROUTINE1')">
           <img src="{{url_for('static', filename='icons/colours1.png')}}" class="effect-img">
-          <p class="effect-name-2">Colours!</p>
+          <p class="effect-name">Colours!</p>
         </div>
       </div>
       {% endif %}

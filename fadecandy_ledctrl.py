@@ -4,7 +4,10 @@ import opc
 
 import os
 
+import sys
+
 import time
+import datetime
 
 import json
 
@@ -12,11 +15,13 @@ import functools
 
 import env_config
 
-import RPi.GPIO
+import RPi.GPIO as GPIO
 
 import math
 
 import random
+
+import signal
 
 numLEDs = env_config.NUM_LEDS
 client = opc.Client(env_config.OPC_ADDR)
@@ -45,10 +50,41 @@ LIB_PURPLE_R = 87
 LIB_PURPLE_G = 52
 LIB_PURPLE_B = 148
 
+# -----------------------------------------------------
+# Check if it is within Lights On time
+# returns True if it is between TIME_ON and TIME_OFF
+# -----------------------------------------------------
+def check_in_time():
+  in_time = False
+  hour_now = datetime.datetime.now().hour
+  minute_now = datetime.datetime.now().minute
+  if hour_now >= env_config.TIME_ON_HOUR and minute_now >= env_config.TIME_ON_MIN:
+    if hour_now <= env_config.TIME_OFF_HOUR and minute_now <= env_config.TIME_OFF_MIN:
+      in_time = True
+
+  return in_time
+
+def signal_handler(signal, frame):
+    GPIO.cleanup()
+    print("exiting LEDs...")
+    sys.exit(0)
+
 class LEDController():
     def __init__(self):
 
+        print("Initializing new fadecandy LED controller")
+
+        signal.signal(signal.SIGINT, signal_handler)
+
         random.seed(time.time())
+
+        GPIO.setmode(GPIO.BOARD)
+
+        self.power_pin =env_config.PSU_PIN
+        self.last_power_toggle_time = time.time()
+
+        GPIO.setup(self.power_pin, GPIO.OUT)
+        GPIO.output(self.power_pin, GPIO.HIGH)
 
         # pixel buffer
         self.pixels = [(0,0,0)] * numLEDs
@@ -79,11 +115,6 @@ class LEDController():
         self.idle_build_chunk_min = 6
         self.idle_build_chunk_max = 12
         self.idle_build_speed = 0.87
-        self.idle_rotate_panes = 4
-        self.idle_rotate_pane1 = [0,49]   #[0,235]
-        self.idle_rotate_pane2 = [50,99]   #[236,471]
-        self.idle_rotate_pane3 = [100,149]   #[472,707]
-        self.idle_rotate_pane4 = [150,191]   #[708,917]
 
         # Rainbow Fade In
         self.state3_color = 0
@@ -127,7 +158,7 @@ class LEDController():
         self.state9_chunk_max = 12
         self.state9_speed = 0.87
         self.state9_color = 0
-        self.state9_step = 10
+        self.state9_step = 0.055
         # ----------------------------------------------------------------------
 
         print("LED Controller initialized")
@@ -148,6 +179,15 @@ class LEDController():
             time_now = int(round(time.time() * 1000)) # time now
 
             if time_now - time_prev_poll >= self.poll_period:
+
+                in_time = check_in_time()
+                if in_time and (time_now - self.last_power_toggle_time) > 30:
+                    GPIO.output(self.power_pin, GPIO.LOW)
+                    self.last_power_toggle_time = time.time()
+                else:
+                    GPIO.output(self.power_pin, GPIO.HIGH)
+                    self.last_power_toggle_time = time.time()
+
                 time_prev_poll = int(round(time.time() * 1000))
                 if conn.poll():
                     jsonmsg = conn.recv()
@@ -172,10 +212,10 @@ class LEDController():
                         self.effect_delay = 25
                         self._state = 8
                     elif msg["CMD"] == "BUILDUPDOWN":
+                        self.pixels = [(0,0,0)] * numLEDs
                         self.effect_delay = self.state9_max_delay
 
                         self.state9_array = []
-                        self.state9_color += self.state9_step
 
                         # build random 'chunk' list
                         done = False
@@ -184,7 +224,7 @@ class LEDController():
                             end = pos + random.randint(self.state9_chunk_min,self.state9_chunk_max)
                             if end >= numLEDs:
                                 end = numLEDs - 1
-                            self.idle_build_array.append((pos, end))
+                            self.state9_array.append((pos, end))
                             if end != numLEDs - 1:
                                 pos = end
                             else:
@@ -338,24 +378,27 @@ class LEDController():
             self.pixels = [new_color] * numLEDs
 
     def idle_rotate(self):
-        pane = random.randint(0,self.idle_rotate_panes-1)
-        new_color_index = random.choice([86/360,196/360,280/360,-1,86/360,196/360,280/360])
+        if env_config.WIN_UPPER_PANE:
+            pane = random.randint(0,3)
+        else:
+            pane = random.randint(0,3)
+        new_color_index = random.choice([-1,86/360,196/360,280/360,-1,86/360,196/360,280/360])
         if new_color_index != -1:
             new_color = HSVtoRGB(new_color_index,1,0.7)
         else:
             new_color = (0,0,0)
 
         if pane == 0:
-            for i in range(self.idle_rotate_pane1[0],self.idle_rotate_pane1[1]):
+            for i in range(env_config.WIN_PANE1[0],env_config.WIN_PANE1[1]):
                 self.pixels[i] = new_color
         elif pane == 1:
-            for i in range(self.idle_rotate_pane2[0],self.idle_rotate_pane2[1]):
+            for i in range(env_config.WIN_PANE2[0],env_config.WIN_PANE2[1]):
                 self.pixels[i] = new_color
         elif pane == 2:
-            for i in range(self.idle_rotate_pane3[0],self.idle_rotate_pane3[1]):
+            for i in range(env_config.WIN_PANE3[0],env_config.WIN_PANE3[1]):
                 self.pixels[i] = new_color
         else:
-            for i in range(self.idle_rotate_pane4[0],self.idle_rotate_pane4[1]):
+            for i in range(env_config.WIN_PANE4[0],env_config.WIN_PANE4[1]):
                 self.pixels[i] = new_color
 
     def idle_rainbow(self):
@@ -591,7 +634,7 @@ class LEDController():
 
     # Build up/down
     def build_up_down(self):
-        new_color = HSVtoRGB(self.state9_color,1,0.7)
+        new_color = HSVtoRGB(self.state9_color,1,0.65)
 
         if self.state9_dir:
             pick = random.randint(0, len(self.state9_array)-1)
@@ -621,6 +664,8 @@ class LEDController():
 
             self.state9_array = []
             self.state9_color += self.state9_step
+            if self.state9_color > 1.0:
+                self.state9_color = 0
 
             # build random 'chunk' list
             done = False
@@ -629,7 +674,7 @@ class LEDController():
                 end = pos + random.randint(self.state9_chunk_min,self.state9_chunk_max)
                 if end >= numLEDs:
                     end = numLEDs - 1
-                self.idle_build_array.append((pos, end))
+                self.state9_array.append((pos, end))
                 if end != numLEDs - 1:
                     pos = end
                 else:

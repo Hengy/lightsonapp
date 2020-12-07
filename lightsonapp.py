@@ -111,8 +111,9 @@ ws_context = zmq.Context()
 def check_in_time():
   in_time = False
   hour_now = datetime.datetime.now().hour
-  if hour_now >= env_config.TIME_ON:
-    if hour_now <= env_config.TIME_OFF:
+  minute_now = datetime.datetime.now().minute
+  if hour_now >= env_config.TIME_ON_HOUR and minute_now >= env_config.TIME_ON_MIN:
+    if hour_now <= env_config.TIME_OFF_HOUR and min_now <= env_config.TIME_OFF_MIN:
       in_time = True
 
   return in_time

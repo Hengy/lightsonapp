@@ -51,8 +51,27 @@ QUEUE_MAX_TIME = 300    # time (in seconds) a user has to control LEDs before co
 # TIME ON/OFF
 #------------------------------------------------------
 
-TIME_ON = 1        # hour to turn on (24 hour time) 17 = 5PM
-TIME_OFF = 23       # hour to turn off (24 hour time) 23 = 11PM
+TIME_ON_HOUR = 17       # hour to turn on (24 hour time) 17 = 5PM
+TIME_ON_MIN = 0         # minute to turn on
+TIME_OFF_HOUR = 23      # hour to turn off (24 hour time) 23 = 11PM
+TIME_OFF_MIN = 0        # minute to turn off
+
+#------------------------------------------------------
+# DISPLAY TYPE
+#------------------------------------------------------
+
+PI_DISPLAY_TYPE = 1     # (0) = Addressable LED strips
+                        # (1) = GPIO/Relay OR DMX Lights
+
+RELAY_LOGIC_INV = True
+
+#------------------------------------------------------
+# GPIO PINS
+#------------------------------------------------------
+
+PSU_PIN = 11
+
+RELAY_PINS = (11,13,15,16,18,22,24,26)
 
 #------------------------------------------------------
 # LED SETUP
@@ -68,3 +87,10 @@ CHAN_1_NUM_LEDS = 236   # number of LEDs in channel
 IDLE_COLOR_CHANGE_TIME = 20
 IDLE_SYNC_OFFSET01 = 0.4
 IDLE_MODE_CHANGE_TIME = 300
+
+# window configuration
+WIN_UPPER_PANE = False
+WIN_PANE1 = [0,49]      #[0,235]
+WIN_PANE2 = [50,99]     #[236,471]
+WIN_PANE3 = [100,149]   #[472,707]
+WIN_PANE4 = [150,191]   #[708,917]

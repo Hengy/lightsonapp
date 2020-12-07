@@ -23,6 +23,7 @@ import time
 import pickle
 
 import fadecandy_ledctrl as fc
+import dmxctrl as dmx
 
 import env_config
 
@@ -116,11 +117,20 @@ def main():
     #socket.bind("tcp://127.0.0.1:62830")
     socket.bind(env_config.ZMQ_SOCKET_IP + ":" + env_config.ZMQ_SOCKET_PORT)
 
-    # initialize fadecandy led control class
-    led_controller = fc.LEDController()
-
     # set up multiprocessing pipes
     ws_ledp_conn, ledp_conn = multiprocessing.Pipe()
+
+    if not env_config.PI_DISPLAY_TYPE:
+
+        # initialize fadecandy led control class
+        led_controller = fc.LEDController()
+
+    else:
+
+        # initialize dmx light control class
+        led_controller = dmx.LEDController()
+
+    # get new process
     ledp = multiprocessing.Process(target=led_controller.run, args=[ledp_conn])
 
     # message callback

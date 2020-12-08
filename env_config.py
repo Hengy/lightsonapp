@@ -58,7 +58,7 @@ TIME_OFF_HOUR = 23      # hour to turn off (24 hour time) 23 = 11PM
 # DISPLAY TYPE
 #------------------------------------------------------
 
-PI_DISPLAY_TYPE = 1     # (0) = Addressable LED strips
+PI_DISPLAY_TYPE = 0     # (0) = Addressable LED strips
                         # (1) = GPIO/Relay OR DMX Lights
 
 RELAY_LOGIC_INV = True

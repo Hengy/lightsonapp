@@ -234,6 +234,10 @@ class LEDController():
                         self.effect_delay = 20
                         print("turning off LEDs...")
                         self._state = 1
+                    elif msg["CMD"] == "STREAM":
+                        new_color = HSVtoRGB(msg["Data"][0]/360, msg["Data"][1]/100, (msg["Data"][2]/100)*0.8)
+                        self.pixels = [new_color] * numLEDs
+                        self._state = 2
                     elif msg["CMD"] == "IDLE":
                         self.effect_delay = 20
                         print("idling LEDs...")
@@ -247,6 +251,8 @@ class LEDController():
                 time_prev_pixel_update = int(round(time.time() * 1000)) # time now
                 if self._state == 0:
                     self.idle_leds()
+                elif self._state == 2:
+                    pass  
                 elif self._state == 1:
                     self.blank_leds()
                 elif self._state == 3:

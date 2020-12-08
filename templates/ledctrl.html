@@ -13,6 +13,9 @@
 
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6/css/reinvented-color-wheel.min.css">
+    <script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6"></script>>
+
     <title>Lights On!</title>
 
   </head>
@@ -45,11 +48,22 @@
 
       {% if dmx == 0 %}
       <div id="button-container">
+        <p id="effect-title">Interactive</p>
+
+        <div class="effect-button" alt="Colour Picker" onclick="display_effect('STREAM'); panel_open('color-picker')">
+          <img src="{{url_for('static', filename='icons/pick.png')}}" class="effect-img">
+          <p class="effect-name">Colour Picker</p>
+        </div>
+
+        <div class="color-picker" id="color-picker"></div>
+
+      </div>
+      <div id="button-container">
         <p id="effect-title">Effects</p>
 
         <div class="effect-button" alt="Fade In" onclick="display_effect('FADEIN')">
           <img src="{{url_for('static', filename='icons/fadeIn.png')}}" class="effect-img">
-          <p class="effect-name-2">Rainbow Fade In</p>
+          <p class="effect-name-2">Rainbow Fade-In</p>
         </div>
 
         <div class="effect-button" alt="Rainbow" onclick="display_effect('RAINBOW')">
@@ -86,13 +100,14 @@
       {% endif %}
 
       {% if dmx == 1 %}
-      <div id="button-container"></div>
+      <div id="button-container">
         <p id="effect-title">Routines</p>
 
         <div class="effect-button" alt="Colours!" onclick="display_effect('ROUTINE1')">
           <img src="{{url_for('static', filename='icons/colours1.png')}}" class="effect-img">
           <p class="effect-name">Colours!</p>
         </div>
+
       </div>
       {% endif %}
 
@@ -111,10 +126,16 @@
       // var ledctrl_socket = new WebSocket('ws://192.168.0.41:31415/ledctrl');
       var ledctrl_socket = new WebSocket('ws://{{ self_ip }}:31415/ledctrl');
 
+      // user and sessions variables from flask
       var user_uuid = '{{ user_uuid }}';
       var user_ip = '{{ user_ip }}';
       var time_left = parseInt("{{ time_wait }}");
 
+      // color picker
+      var colorWheel = null;
+      var time_updated = 0;
+
+      // convert time to string with :
       function time_to_str(time) {
         var time_left_s = time_left % 60;
         var time_left_m = (time_left - time_left_s) / 60;
@@ -125,10 +146,10 @@
         }
       }
 
+      // set clock to display time left
       $("#clock").html(time_to_str(time_left));
 
-      console.log(user_uuid);
-
+      // update clock every second
       setInterval(() => {
         time_left--;
 
@@ -139,19 +160,23 @@
         }
       }, 1000);
 
+      // on page load
       document.addEventListener('DOMContentLoaded', () => {
+
         // Connect to Socketio
         var flask_socket = io.connect('http://{{ self_ip }}{{ self_port }}');
 
         // When connected
-        flask_socket.on('connect', () => {
-            console.log("Connecting to flask");
-        });
+        // flask_socket.on('connect', () => {
+        //     console.log("Connecting to flask");
+        // });
 
+        // check time elapsed with server every second
         setInterval(() => {
           flask_socket.emit('check', {'message':'none'});
         }, 1000);
 
+        // socketio check event handler
         function check_handler(data) {
           msg = JSON.parse(data);
           if (msg.check_result == true) {
@@ -159,9 +184,28 @@
           }
         }
 
+        // set check event handler
         flask_socket.on('check_result', check_handler)
+
+        colorWheel = new ReinventedColorWheel({
+          appendTo: document.getElementById("color-picker"),
+          hsv: [0, 100, 80],
+          // appearance
+          wheelDiameter: 300,
+          wheelThickness: 40,
+          handleDiameter: 32,
+          wheelReflectsSaturation: false,
+
+          // handler
+          onChange: function (color) {
+            msg = {"CMD":"STREAM", "uuid":user_uuid, "IP":user_ip, "Data":[color.hsv[0], color.hsv[1], color.hsv[2]] }
+            ledctrl_socket.send(JSON.stringify(msg));
+          }
+        });
+
       });
 
+      // if time has elapsed and server has not signalled, exit anyways
       setInterval(() => {
 
         if (time_left < -5) {
@@ -169,17 +213,33 @@
         }
       }, 1000);
 
-      ledctrl_socket.onopen = function(event) {
-        console.log('Connected.');
-      };
+      // on websocket connection with led control
+      // ledctrl_socket.onopen = function(event) {
+      //   console.log('Connected.');
+      // };
 
-      ledctrl_socket.onerror = function(error) {
-        console.log('WebSocket error: ' + error);
-      };
+      // on websocket error
+      // ledctrl_socket.onerror = function(error) {
+      //   console.log('WebSocket error: ' + error);
+      // };
 
+      // send display effect command to led control
       function display_effect(effect_cmd) {
-        msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip}
-        ledctrl_socket.send(JSON.stringify(msg));
+        if (effect_cmd == 'STREAM') {
+          msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip, "Data":[0,100,100]}
+          ledctrl_socket.send(JSON.stringify(msg));
+        } else {
+          msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip}
+          ledctrl_socket.send(JSON.stringify(msg));
+        }
+        
+      }
+
+      // panels
+      $("#color-picker").hide();
+
+      function panel_open(panel_id) {
+        $("#" + panel_id).toggle(100);
       }
 
     </script>

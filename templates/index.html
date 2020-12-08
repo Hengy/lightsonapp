@@ -25,7 +25,10 @@
       </div>
 
       <div id="info-container">
-        <button type="button" id="lightson-info-button">Lights On Stratford</button>
+        <div id="lightson-info-button">
+          <img src="{{url_for('static', filename='icons/arrow_side.png')}}" id="arrow">
+          Lights On Stratford
+        </div>
         <div id="lightson-info-tile">
           <p>Lights On Stratford winter festival of lights will transform the downtown core with luminous art and interactive light installations. Lights On Stratford harnesses some of the world's best artists, lighting designers, props builders, and creative minds to craft a truly unique experience that can't be found anywhere else. Prepare to be dazzled.</p>
           <a style="color: rgba(91,51,147);" href="https://lightsonstratford.ca/">Lights On Stratford Website</a>
@@ -74,6 +77,8 @@
 
     <script>
       
+      var info_down = false;
+
       document.addEventListener('DOMContentLoaded', () => {
         
         $("#lightson-info-tile").hide();
@@ -81,8 +86,14 @@
       });
 
       $("#lightson-info-button").click(function() {
-        console.log("toggle!");
         $("#lightson-info-tile").toggle(100);
+        if (info_down) {
+          $("#arrow").attr("src", "{{url_for('static', filename='icons/arrow_side.png')}}");
+          info_down = false;
+        } else {
+          $("#arrow").attr("src", "{{url_for('static', filename='icons/arrow_down.png')}}");
+          info_down = true;
+        }
       });
 
     </script>

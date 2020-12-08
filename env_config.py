@@ -76,7 +76,11 @@ RELAY_PINS = (  11, 13, 15, 16, 18, 22, 24, 26)
 # LED SETUP
 #------------------------------------------------------
 
-NUM_LEDS = 192          # TOTAL number of LEDs in window
+NUM_LEDS = 918          # Lower Windows LED total
+NUM_LEDS = 708          # Lower Windows LED total
+
+LED_POWER_LIMIT = True  # enable (True) power limit on LED effects that use all (or  most) pixels
+LED_POWER_SCALE = 0.8   # factor to limit LED power; < 1 reduces LED brightness/power
 
 FC_CAHNNELS = 3         # number of Fadecandy OPC channels - 1 OPC channel per window for easy addressing!
 
@@ -89,7 +93,7 @@ IDLE_MODE_CHANGE_TIME = 300
 
 # window configuration
 WIN_UPPER_PANE = False
-WIN_PANE1 = [0,49]      #[0,235]
-WIN_PANE2 = [50,99]     #[236,471]
-WIN_PANE3 = [100,149]   #[472,707]
-WIN_PANE4 = [150,191]   #[708,917]
+WIN_PANE1 = [0,236]     #[0,50]
+WIN_PANE2 = [236,472]   #[50,100]
+WIN_PANE3 = [472,708]   #[100,150]
+WIN_PANE4 = [708,918]   #[150,192]

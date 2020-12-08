@@ -162,6 +162,12 @@ class LEDController():
 
         print("LED Controller initialized")
 
+    def adj_brightness(self):
+        if env_config.LED_POWER_LIMIT:
+            for i in range(len(self.pixels)):
+                new_pixel = (self.pixels[i][0]*env_config.LED_POWER_SCALE,self.pixels[i][1]*env_config.LED_POWER_SCALE,self.pixels[i][2]*env_config.LED_POWER_SCALE)
+                self.pixels[i] = new_pixel
+
     # led controller state machine
     def run(self, conn):
         print("Fadecandy Process ID: ", os.getpid())
@@ -235,14 +241,19 @@ class LEDController():
                         print("turning off LEDs...")
                         self._state = 1
                     elif msg["CMD"] == "STREAM":
-                        new_color = HSVtoRGB(msg["Data"][0]/360, msg["Data"][1]/100, (msg["Data"][2]/100)*0.8)
+                        if env_config.LED_POWER_LIMIT:
+                            new_color = HSVtoRGB(msg["Data"][0]/360, msg["Data"][1]/100, (msg["Data"][2]/100)*env_config.LED_POWER_SCALE)
+                        else:
+                            new_color = HSVtoRGB(msg["Data"][0]/360, msg["Data"][1]/100, msg["Data"][2]/100)
                         self.pixels = [new_color] * numLEDs
                         self._state = 2
                     elif msg["CMD"] == "IDLE":
+                        self.pixels = [(0,0,0)] * numLEDs
                         self.effect_delay = 20
                         print("idling LEDs...")
                         self._state = 0
                     else:
+                        self.pixels = [(0,0,0)] * numLEDs
                         self.effect_delay = 20
                         print("idling LEDs...")
                         self._state = 0
@@ -257,8 +268,10 @@ class LEDController():
                     self.blank_leds()
                 elif self._state == 3:
                     self.rainbowfadein()
+                    self.adj_brightness()
                 elif self._state == 4:
                     self.rainbow()
+                    self.adj_brightness()
                 elif self._state == 5:
                     self.chase()
                 elif self._state == 6:
@@ -306,6 +319,9 @@ class LEDController():
                     else:
                         done = True
 
+            if self.idle_mode == 2:
+                self.pixels = [(0,0,0)] * numLEDs
+
         if self.idle_mode_time <= time.time():
             self.idle_mode_time = time.time() + env_config.IDLE_MODE_CHANGE_TIME
             self.idle_mode += 1
@@ -316,6 +332,8 @@ class LEDController():
 
             if self.idle_mode == 1:
                 self.idle_mode_time = time.time() + env_config.IDLE_MODE_CHANGE_TIME
+            if  self.idle_mode == 2:
+                self.pixels = [(0,0,0)] * numLEDs
             elif self.idle_mode == 4:
 
                 self.pixels = [(0,0,0)] * numLEDs
@@ -347,6 +365,7 @@ class LEDController():
             self.idle_rotate()
         elif self.idle_mode == 3:
             self.idle_rainbow()
+            self.adj_brightness()
         elif self.idle_mode == 4:
             self.idle_build()
         elif self.idle_mode == 5:
@@ -407,7 +426,7 @@ class LEDController():
                 self.pixels[i] = new_color
 
     def idle_rainbow(self):
-        new_color = HSVtoRGB(self.idle_color,1,0.7)
+        new_color = HSVtoRGB(self.idle_color,1,1)
 
         self.idle_color += self.idle_step
         if(self.idle_color >= 1.0):
@@ -639,7 +658,7 @@ class LEDController():
 
     # Build up/down
     def build_up_down(self):
-        new_color = HSVtoRGB(self.state9_color,1,0.65)
+        new_color = HSVtoRGB(self.state9_color,1,0.7)
 
         if self.state9_dir:
             pick = random.randint(0, len(self.state9_array)-1)

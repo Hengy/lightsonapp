@@ -285,6 +285,8 @@ class LEDController():
                 else:
                     self.idle_leds()
 
+            if not check_in_time():
+                self.pixels = [(0,0,0}] * numLEDs
             client.put_pixels(self.pixels)
 
         # state machine end ------------------------------------------------------------

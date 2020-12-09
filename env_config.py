@@ -112,6 +112,7 @@ def config_leds():
     global WIN_PANE4
     global WIN_UPPER_PANE
     global PI_DISPLAY_TYPE
+    global NUM_LEDS
 
     WIN_PANE1 = [0,236]     #[0,50]
     WIN_PANE2 = [236,472]   #[50,100]
@@ -125,18 +126,22 @@ def config_leds():
         WIN_PANE4 = [150,192]
         PI_DISPLAY_TYPE = 0
         WIN_UPPER_PANE = False
-    elif SELF_IP == "192.168.1.190":
+        NUM_LEDS = 192
+    elif SELF_IP == "192.168.1.190":    # Staff room - upper
         WIN_UPPER_PANE = False
         PI_DISPLAY_TYPE = 0
-    elif SELF_IP == "192.168.1.191":
+        NUM_LEDS = 708
+    elif SELF_IP == "192.168.1.191":    # PSL - upper
         WIN_UPPER_PANE = False
         PI_DISPLAY_TYPE = 0
-    elif SELF_IP == "192.168.1.192":
-        WIN_UPPER_PANE = False
+        NUM_LEDS = 708
+    elif SELF_IP == "192.168.1.192":    # Makerspace - lower
+        WIN_UPPER_PANE = True
         PI_DISPLAY_TYPE = 0
-    elif SELF_IP == "192.168.1.193":
-        WIN_UPPER_PANE = False
+        NUM_LEDS = 918
+    elif SELF_IP == "192.168.1.193":    # Shaunas office - lower
+        WIN_UPPER_PANE = True
         PI_DISPLAY_TYPE = 0
-    elif SELF_IP == "192.168.1.194":
-        WIN_UPPER_PANE = False
-        PI_DISPLAY_TYPE = 0
+        NUM_LEDS = 918
+    elif SELF_IP == "192.168.1.194":    # DMX
+        PI_DISPLAY_TYPE = 1

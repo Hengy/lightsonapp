@@ -71,6 +71,15 @@ def signal_handler(signal, frame):
 class LEDController():
     def __init__(self):
 
+        print("Local IP Address: ", env_config.get_self_ip())
+
+        print("Now env_config SELF_IP is: ", env_config.SELF_IP)
+
+        env_config.config_leds()
+
+        print("Upper Pane: ", env_config.WIN_UPPER_PANE)
+        print("Display type (0 = LEDs, 1 = DMX/Relays): ", env_config.PI_DISPLAY_TYPE)
+
         print("Initializing new fadecandy LED controller")
 
         signal.signal(signal.SIGINT, signal_handler)
@@ -286,7 +295,7 @@ class LEDController():
                     self.idle_leds()
 
             if not check_in_time():
-                self.pixels = [(0,0,0}] * numLEDs
+                self.pixels = [(0,0,0)] * numLEDs
             client.put_pixels(self.pixels)
 
         # state machine end ------------------------------------------------------------

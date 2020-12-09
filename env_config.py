@@ -1,19 +1,18 @@
 
+import os
+
 #------------------------------------------------------
 # FLASK APP
 #------------------------------------------------------
 
-# Matt H Dev
-SELF_IP =  "192.168.0.41"  # set to static IP address of Raspberry Pi
+SELF_IP =  ""  # set to static IP address of Raspberry Pi
 SELF_PORT = ":5000"
-# SELF_PORT = ""
 
-# SPL
-# SELF_IP =  "192.168.1.190"  # set to static IP address of Raspberry Pi
-# SELF_IP =  "192.168.1.191"  # set to static IP address of Raspberry Pi
-# SELF_IP =  "192.168.1.192"  # set to static IP address of Raspberry Pi
-# SELF_IP =  "192.168.1.193"  # set to static IP address of Raspberry Pi
-# SELF_IP =  "192.168.1.194"  # set to static IP address of Raspberry Pi
+def get_self_ip():
+    global SELF_IP
+    result = os.popen("ip -4 route show default").read().split()
+    SELF_IP = result[8]
+    return result[8]
 
 #------------------------------------------------------
 # FLASK APP
@@ -76,8 +75,10 @@ RELAY_PINS = (  11, 13, 15, 16, 18, 22, 24, 26)
 # LED SETUP
 #------------------------------------------------------
 
-NUM_LEDS = 918          # Lower Windows LED total
-NUM_LEDS = 708          # Lower Windows LED total
+#NUM_LEDS = 918          # Upper Windows LED total
+#NUM_LEDS = 708          # Lower Windows LED total
+
+NUM_LEDS = 192  #for testing ONLY
 
 LED_POWER_LIMIT = True  # enable (True) power limit on LED effects that use all (or  most) pixels
 LED_POWER_SCALE = 0.8   # factor to limit LED power; < 1 reduces LED brightness/power
@@ -93,7 +94,49 @@ IDLE_MODE_CHANGE_TIME = 300
 
 # window configuration
 WIN_UPPER_PANE = False
-WIN_PANE1 = [0,236]     #[0,50]
-WIN_PANE2 = [236,472]   #[50,100]
-WIN_PANE3 = [472,708]   #[100,150]
-WIN_PANE4 = [708,918]   #[150,192]
+# WIN_PANE1 = [0,236]     #[0,50]
+# WIN_PANE2 = [236,472]   #[50,100]
+# WIN_PANE3 = [472,708]   #[100,150]
+# WIN_PANE4 = [708,918]   #[150,192]
+
+WIN_PANE1 = [0,50]
+WIN_PANE2 = [50,100]
+WIN_PANE3 = [100,150]
+WIN_PANE4 = [150,192]
+
+def config_leds():
+    global SELF_IP
+    global WIN_PANE1
+    global WIN_PANE2
+    global WIN_PANE3
+    global WIN_PANE4
+    global WIN_UPPER_PANE
+    global PI_DISPLAY_TYPE
+
+    WIN_PANE1 = [0,236]     #[0,50]
+    WIN_PANE2 = [236,472]   #[50,100]
+    WIN_PANE3 = [472,708]   #[100,150]
+    WIN_PANE4 = [708,918]   #[150,192]
+
+    if SELF_IP == "192.168.0.41":
+        WIN_PANE1 = [0,50]
+        WIN_PANE2 = [50,100]
+        WIN_PANE3 = [100,150]
+        WIN_PANE4 = [150,192]
+        PI_DISPLAY_TYPE = 0
+        WIN_UPPER_PANE = False
+    elif SELF_IP == "192.168.1.190":
+        WIN_UPPER_PANE = False
+        PI_DISPLAY_TYPE = 0
+    elif SELF_IP == "192.168.1.191":
+        WIN_UPPER_PANE = False
+        PI_DISPLAY_TYPE = 0
+    elif SELF_IP == "192.168.1.192":
+        WIN_UPPER_PANE = False
+        PI_DISPLAY_TYPE = 0
+    elif SELF_IP == "192.168.1.193":
+        WIN_UPPER_PANE = False
+        PI_DISPLAY_TYPE = 0
+    elif SELF_IP == "192.168.1.194":
+        WIN_UPPER_PANE = False
+        PI_DISPLAY_TYPE = 0

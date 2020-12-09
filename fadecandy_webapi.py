@@ -110,6 +110,14 @@ def process_zmq_message(msg, conn):
 def main():
     print("Websocket Server Process ID: ", os.getpid())
 
+    print("Local IP Address: ", env_config.get_self_ip())
+    print("Now env_config SELF_IP is: ", env_config.SELF_IP)
+
+    env_config.config_leds()
+
+    print("Upper Pane: ", env_config.WIN_UPPER_PANE)
+    print("Display type (0 = LEDs, 1 = DMX/Relays): ", env_config.PI_DISPLAY_TYPE)
+
     # set up Zero MQ connection to Flask server
     flask_context = zmq.Context()
     socket = flask_context.socket(zmq.PAIR)

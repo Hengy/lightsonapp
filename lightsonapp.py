@@ -463,6 +463,14 @@ def wait_handler(jsonmsg, methods=['POST']):
 # -----------------------------------------------------
 if __name__ == "__main__":
 
+  print("Local IP Address: ", env_config.get_self_ip())
+  print("Now env_config SELF_IP is: ", env_config.SELF_IP)
+
+  env_config.config_leds()
+
+  print("Upper Pane: ", env_config.WIN_UPPER_PANE)
+  print("Display type (0 = LEDs, 1 = DMX/Relays): ", env_config.PI_DISPLAY_TYPE)
+
   print("Flask Process ID: ", os.getpid())
 
   # app.run(host='0.0.0.0',debug=True)

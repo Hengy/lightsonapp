@@ -428,18 +428,18 @@ class LEDController():
         else:
             new_color = (0,0,0)
 
-        # if pane == 0:
-        #     for i in range(env_config.WIN_PANE1[0],env_config.WIN_PANE1[1]):
-        #         self.pixels[i] = new_color
-        # elif pane == 1:
-        #     for i in range(env_config.WIN_PANE2[0],env_config.WIN_PANE2[1]):
-        #         self.pixels[i] = new_color
-        # elif pane == 2:
-        #     for i in range(env_config.WIN_PANE3[0],env_config.WIN_PANE3[1]):
-        #         self.pixels[i] = new_color
-        # else:
-        #     for i in range(env_config.WIN_PANE4[0],env_config.WIN_PANE4[1]):
-        #         self.pixels[i] = new_color
+        if pane == 0:
+            for i in range(env_config.WIN_PANE1[0],env_config.WIN_PANE1[1]):
+                self.pixels[i] = new_color
+        elif pane == 1:
+            for i in range(env_config.WIN_PANE2[0],env_config.WIN_PANE2[1]):
+                self.pixels[i] = new_color
+        elif pane == 2:
+            for i in range(env_config.WIN_PANE3[0],env_config.WIN_PANE3[1]):
+                self.pixels[i] = new_color
+        else:
+            for i in range(env_config.WIN_PANE4[0],env_config.WIN_PANE4[1]):
+                self.pixels[i] = new_color
 
     def idle_rainbow(self):
         new_color = HSVtoRGB(self.idle_color,1,1)

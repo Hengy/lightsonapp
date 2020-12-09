@@ -11,8 +11,20 @@ SELF_PORT = ":5000"
 def get_self_ip():
     global SELF_IP
     result = os.popen("ip -4 route show default").read().split()
-    SELF_IP = result[8]
-    return result[8]
+    if '192.168.1.190' in result:
+        ip = '192.168.1.190'
+    if '192.168.1.191' in result:
+        ip = '192.168.1.191'
+    if '192.168.1.192' in result:
+        ip = '192.168.1.192'
+    if '192.168.1.193' in result:
+        ip = '192.168.1.193'
+    if '192.168.1.194' in result:
+        ip = '192.168.1.194'
+    if '192.168.0.41' in result:
+        ip = '192.168.0.41'
+    SELF_IP = ip
+    return ip
 
 #------------------------------------------------------
 # FLASK APP

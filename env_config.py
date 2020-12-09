@@ -78,7 +78,7 @@ RELAY_PINS = (  11, 13, 15, 16, 18, 22, 24, 26)
 #NUM_LEDS = 918          # Upper Windows LED total
 #NUM_LEDS = 708          # Lower Windows LED total
 
-NUM_LEDS = 192  #for testing ONLY
+NUM_LEDS = 1  #for testing ONLY
 
 LED_POWER_LIMIT = True  # enable (True) power limit on LED effects that use all (or  most) pixels
 LED_POWER_SCALE = 0.8   # factor to limit LED power; < 1 reduces LED brightness/power

@@ -470,6 +470,7 @@ if __name__ == "__main__":
 
   print("Upper Pane: ", env_config.WIN_UPPER_PANE)
   print("Display type (0 = LEDs, 1 = DMX/Relays): ", env_config.PI_DISPLAY_TYPE)
+  print("LEDs: ", env_config.NUM_LEDS)
 
   print("Flask Process ID: ", os.getpid())
 

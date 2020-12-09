@@ -23,7 +23,7 @@ import random
 
 import signal
 
-numLEDs = env_config.NUM_LEDS
+numLEDs = 1
 client = opc.Client(env_config.OPC_ADDR)
 
 # converts HSV to RGB values; h = 0..359, s,v = 0..1
@@ -71,14 +71,19 @@ def signal_handler(signal, frame):
 class LEDController():
     def __init__(self):
 
+        global numLEDs
+
         print("Local IP Address: ", env_config.get_self_ip())
 
         print("Now env_config SELF_IP is: ", env_config.SELF_IP)
 
         env_config.config_leds()
 
+        numLEDs = env_config.NUM_LEDS
+
         print("Upper Pane: ", env_config.WIN_UPPER_PANE)
         print("Display type (0 = LEDs, 1 = DMX/Relays): ", env_config.PI_DISPLAY_TYPE)
+        print("LEDs: ", env_config.NUM_LEDS)
 
         print("Initializing new fadecandy LED controller")
 
@@ -109,7 +114,7 @@ class LEDController():
         self.effect_delay = 20 # ms
 
         # idle
-        self.idle_mode = 2
+        self.idle_mode = 4
         self.idle_mode_max = 4
         self.idle_mode_time = 0
         self.idle_change_time = 0
@@ -162,8 +167,8 @@ class LEDController():
         self.state9_array = []
         self.state9_array2 = []
         self.state9_max_delay = 1500
-        self.state9_chunk_min = 6
-        self.state9_chunk_max = 12
+        self.state9_chunk_min = 10
+        self.state9_chunk_max = 18
         self.state9_speed = 0.87
         self.state9_color = 0
         self.state9_step = 0.055
@@ -423,18 +428,18 @@ class LEDController():
         else:
             new_color = (0,0,0)
 
-        if pane == 0:
-            for i in range(env_config.WIN_PANE1[0],env_config.WIN_PANE1[1]):
-                self.pixels[i] = new_color
-        elif pane == 1:
-            for i in range(env_config.WIN_PANE2[0],env_config.WIN_PANE2[1]):
-                self.pixels[i] = new_color
-        elif pane == 2:
-            for i in range(env_config.WIN_PANE3[0],env_config.WIN_PANE3[1]):
-                self.pixels[i] = new_color
-        else:
-            for i in range(env_config.WIN_PANE4[0],env_config.WIN_PANE4[1]):
-                self.pixels[i] = new_color
+        # if pane == 0:
+        #     for i in range(env_config.WIN_PANE1[0],env_config.WIN_PANE1[1]):
+        #         self.pixels[i] = new_color
+        # elif pane == 1:
+        #     for i in range(env_config.WIN_PANE2[0],env_config.WIN_PANE2[1]):
+        #         self.pixels[i] = new_color
+        # elif pane == 2:
+        #     for i in range(env_config.WIN_PANE3[0],env_config.WIN_PANE3[1]):
+        #         self.pixels[i] = new_color
+        # else:
+        #     for i in range(env_config.WIN_PANE4[0],env_config.WIN_PANE4[1]):
+        #         self.pixels[i] = new_color
 
     def idle_rainbow(self):
         new_color = HSVtoRGB(self.idle_color,1,1)

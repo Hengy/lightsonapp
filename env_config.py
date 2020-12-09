@@ -50,7 +50,7 @@ QUEUE_MAX_TIME = 300    # time (in seconds) a user has to control LEDs before co
 # TIME ON/OFF
 #------------------------------------------------------
 
-TIME_ON_HOUR = 17       # hour to turn on (24 hour time) 17 = 5PM
+TIME_ON_HOUR = 1       # hour to turn on (24 hour time) 17 = 5PM
 TIME_OFF_HOUR = 23      # hour to turn off (24 hour time) 23 = 11PM
 
 #------------------------------------------------------
@@ -102,7 +102,7 @@ WIN_UPPER_PANE = False
 WIN_PANE1 = [0,50]
 WIN_PANE2 = [50,100]
 WIN_PANE3 = [100,150]
-WIN_PANE4 = [150,192]
+WIN_PANE4 = [150,191]
 
 def config_leds():
     global SELF_IP
@@ -120,6 +120,7 @@ def config_leds():
     WIN_PANE4 = [708,918]   #[150,192]
 
     if SELF_IP == "192.168.0.41":
+        global NUM_LEDS
         WIN_PANE1 = [0,50]
         WIN_PANE2 = [50,100]
         WIN_PANE3 = [100,150]

@@ -62,7 +62,7 @@ QUEUE_MAX_TIME = 120    # time (in seconds) a user has to control LEDs before co
 # TIME ON/OFF
 #------------------------------------------------------
 
-TIME_ON_HOUR = 17       # hour to turn on (24 hour time) 17 = 5PM
+TIME_ON_HOUR = 16       # hour to turn on (24 hour time) 16 = 4PM
 TIME_OFF_HOUR = 23      # hour to turn off (24 hour time) 23 = 11PM
 
 #------------------------------------------------------
@@ -80,8 +80,13 @@ RELAY_LOGIC_INV = True
 
 PSU_PIN = 11
 
-RELAY_PINS = (  11, 13, 15, 16, 18, 22, 24, 26)
-#               R   G   B   W   C1  C2  C3  C4 
+RELAY_PINS = (11, 13, 15, 16, 18, 22)
+
+RELAY_PIN_IDLE = 24
+
+RELAY_PIN_OFF = 26 
+
+RELAY_PIN_MOM_TIME = 0.2 # time in seconds that the relay is in opposite pin state (momentary action)
 
 #------------------------------------------------------
 # LED SETUP
@@ -133,13 +138,13 @@ def config_leds():
 
     if SELF_IP == "192.168.0.41":
         global NUM_LEDS
-        WIN_PANE1 = [0,50]
-        WIN_PANE2 = [50,100]
-        WIN_PANE3 = [100,150]
-        WIN_PANE4 = [150,192]
+        WIN_PANE1 = [0,75]
+        WIN_PANE2 = [75,150]
+        WIN_PANE3 = [150,225]
+        WIN_PANE4 = [225,299]
         PI_DISPLAY_TYPE = 0
         WIN_UPPER_PANE = False
-        NUM_LEDS = 192
+        NUM_LEDS = 299
     elif SELF_IP == "192.168.1.190":    # Staff room - upper
         WIN_UPPER_PANE = False
         PI_DISPLAY_TYPE = 0

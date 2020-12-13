@@ -90,9 +90,16 @@ class LEDController():
             GPIO.setup(env_config.RELAY_PINS[i], GPIO.OUT)
             GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_OFF)
 
+        GPIO.setup(env_config.RELAY_PIN_IDLE, GPIO.OUT)
+        GPIO.output(env_config.RELAY_PIN_IDLE, RELAY_LOGIC_OFF)
+
+        GPIO.setup(env_config.RELAY_PIN_OFF, GPIO.OUT)
+        GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_OFF)
+
         # state machine variables
         # ----------------------------------------------------------------------
         # state: 0 = IDLE; 1 = BLANK; 2 = STREAMING; > 3 = LED Effect modes
+        self._prev_state = -1
         self._state = 0
         
         # message polling
@@ -130,25 +137,53 @@ class LEDController():
                     jsonmsg = conn.recv()
                     msg = json.loads(jsonmsg)
                     if msg["CMD"] == "ROUTINE1":
-                        self.effect_delay = 1000
+                        print("routine 1")
                         self._state = 3
+                    elif msg["CMD"] == "ROUTINE2":
+                        print("routine 2")
+                        self._state = 4
+                    elif msg["CMD"] == "ROUTINE3":
+                        print("routine 3")
+                        self._state = 5
+                    elif msg["CMD"] == "ROUTINE4":
+                        print("routine 4")
+                        self._state = 6
+                    elif msg["CMD"] == "ROUTINE5":
+                        print("routine 5")
+                        self._state = 7
+                    elif msg["CMD"] == "ROUTINE6":
+                        print("routine 6")
+                        self._state = 8
+                    elif msg["CMD"] == "RANDOM":
+                        self._state = random.randint(3,8)
                     elif msg["CMD"] == "IDLE":
-                        self.effect_delay = 50
-                        print("idling LEDs...")
                         self._state = 0
                     else:
-                        self.effect_delay = 50
-                        print("idling LEDs...")
                         self._state = 0
+
+            if not check_in_time():
+                self._state = 1
+
+            #print("state: ", self._state)
 
             if time_now - time_prev_pixel_update >= self.effect_delay:
                 time_prev_pixel_update = int(round(time.time() * 1000)) # time now
                 if self._state == 0:
                     self.idle()
                 elif self._state == 1:
-                    self.idle()
+                    self.blank()
                 elif self._state == 3:
-                    self.routine1()
+                    self.routine(1)
+                elif self._state == 4:
+                    self.routine(2)
+                elif self._state == 5:
+                    self.routine(3)
+                elif self._state == 6:
+                    self.routine(4)
+                elif self._state == 7:
+                    self.routine(5)
+                elif self._state == 8:
+                    self.routine(6)
                 else:
                     self.idle()
 
@@ -158,30 +193,28 @@ class LEDController():
 
     # idle LED routines
     def idle(self):
-        self.blank()
+        if self._prev_state != self._state:
+            GPIO.output(env_config.RELAY_PIN_IDLE, RELAY_LOGIC_ON)
+            time.sleep(env_config.RELAY_PIN_MOM_TIME)
+            print("idle")
+            GPIO.output(env_config.RELAY_PIN_IDLE, RELAY_LOGIC_OFF)
+            self._prev_state = self._state
 
     # blank all LEDs
     def blank(self):
-        for i in range(len(env_config.RELAY_PINS)):
-            GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_OFF)
+        if self._prev_state != self._state:
+            GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_ON)
+            time.sleep(env_config.RELAY_PIN_MOM_TIME)
+            print("blank")
+            GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_OFF)
+            self._prev_state = self._state
+            
 
     # chooses one of 6 combinations
-    def routine1(self):
-
-        self.state3_states = [0,0,0]
-
-        k = int(random.randint(0,19)/10)
-        if k > 0:
-            m = int(random.randint(0,29)/10)
-            self.state3_states[m] = 1
-        
-        n = int(random.randint(0,29)/10)
-        self.state3_states[n] = 1
-
-
-        for i in range(3):
-            if self.state3_states[i]:
-                GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_ON)
-            else:
-                GPIO.output(env_config.RELAY_PINS[i], RELAY_LOGIC_OFF)
+    def routine(self, num):
+        if self._prev_state != self._state:
+            GPIO.output(env_config.RELAY_PINS[num-1], RELAY_LOGIC_ON)
+            time.sleep(env_config.RELAY_PIN_MOM_TIME)
+            GPIO.output(env_config.RELAY_PINS[num-1], RELAY_LOGIC_OFF)
+            self._prev_state = self._state
   

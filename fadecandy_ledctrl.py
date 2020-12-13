@@ -58,7 +58,7 @@ def check_in_time():
   in_time = False
   hour_now = datetime.datetime.now().hour
   if hour_now >= env_config.TIME_ON_HOUR:
-    if hour_now <= env_config.TIME_OFF_HOUR:
+    if hour_now < env_config.TIME_OFF_HOUR:
       in_time = True
 
   return in_time
@@ -125,8 +125,8 @@ class LEDController():
         self.idle_build_array = []
         self.idle_build_array2 = []
         self.idle_build_max_delay = 1500
-        self.idle_build_chunk_min = 6
-        self.idle_build_chunk_max = 12
+        self.idle_build_chunk_min = 10
+        self.idle_build_chunk_max = 18
         self.idle_build_speed = 0.87
 
         # Rainbow Fade In
@@ -169,7 +169,7 @@ class LEDController():
         self.state9_max_delay = 1500
         self.state9_chunk_min = 10
         self.state9_chunk_max = 18
-        self.state9_speed = 0.87
+        self.state9_speed = 0.9
         self.state9_color = 0
         self.state9_step = 0.055
         # ----------------------------------------------------------------------
@@ -379,6 +379,7 @@ class LEDController():
         elif self.idle_mode == 2:
             self.effect_delay = random.choice([2000,2500,3000])
             self.idle_rotate()
+            self.adj_brightness()
         elif self.idle_mode == 3:
             self.idle_rainbow()
             self.adj_brightness()
@@ -386,6 +387,7 @@ class LEDController():
             self.idle_build()
         elif self.idle_mode == 5:
             self.idle_breath()
+            self.adj_brightness()
         else:
             self.pixels = [(100,31,143)] * numLEDs
 
@@ -451,7 +453,10 @@ class LEDController():
         self.pixels = [new_color] * numLEDs
 
     def idle_build(self):
-        new_color = HSVtoRGB(self.idle_color,1,0.7)
+        if env_config.LED_POWER_LIMIT:
+            new_color = HSVtoRGB(self.idle_color,1,0.8*env_config.LED_POWER_SCALE)
+        else:
+            new_color = HSVtoRGB(self.idle_color,1,0.75)
 
         if self.idle_build_dir:
             pick = random.randint(0, len(self.idle_build_array)-1)
@@ -460,7 +465,7 @@ class LEDController():
                 self.idle_build_array2.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = new_color
-            if self.effect_delay > 80:
+            if self.effect_delay > 120:
                 self.effect_delay = self.effect_delay*self.idle_build_speed
         else:
             pick = random.randint(0, len(self.idle_build_array2)-1)
@@ -469,7 +474,7 @@ class LEDController():
                 self.idle_build_array.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = (0,0,0)
-            if self.effect_delay > 80:
+            if self.effect_delay > 120:
                 self.effect_delay = self.effect_delay*self.idle_build_speed
 
         if len(self.idle_build_array) == 0:
@@ -674,7 +679,10 @@ class LEDController():
 
     # Build up/down
     def build_up_down(self):
-        new_color = HSVtoRGB(self.state9_color,1,0.7)
+        if env_config.LED_POWER_LIMIT:
+            new_color = HSVtoRGB(self.state9_color,1,0.8*env_config.LED_POWER_SCALE)
+        else:
+            new_color = HSVtoRGB(self.state9_color,1,0.75)
 
         if self.state9_dir:
             pick = random.randint(0, len(self.state9_array)-1)
@@ -683,7 +691,7 @@ class LEDController():
                 self.state9_array2.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = new_color
-            if self.effect_delay > 80:
+            if self.effect_delay > 120:
                 self.effect_delay = self.effect_delay*self.state9_speed
         else:
             pick = random.randint(0, len(self.state9_array2)-1)
@@ -692,7 +700,7 @@ class LEDController():
                 self.state9_array.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = (0,0,0)
-            if self.effect_delay > 80:
+            if self.effect_delay > 120:
                 self.effect_delay = self.effect_delay*self.state9_speed
 
         if len(self.state9_array) == 0:

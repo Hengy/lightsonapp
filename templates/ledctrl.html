@@ -11,10 +11,12 @@
 
     <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
 
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.css" integrity="sha512-lvdq1fIyCp6HMWx1SVzXvGC4jqlX3e7Xm7aCBrhj5F1WdWoLe0dBzU0Sy10sheZYSkJpJcboMNO/4Qz1nJNxfA==" crossorigin="anonymous" />
+
     <link rel="shortcut icon" href="{{ url_for('static', filename='favicon.ico') }}">
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6/css/reinvented-color-wheel.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6"></script>>
+    <script src="https://cdn.jsdelivr.net/npm/reinvented-color-wheel@0.1.6"></script>
 
     <title>Lights On!</title>
 
@@ -50,51 +52,133 @@
       <div id="button-container">
         <p id="effect-title">Interactive</p>
 
-        <div class="effect-button" alt="Colour Picker" onclick="display_effect('STREAM'); panel_open('color-picker')">
+        <!-- COLOUR PICKER -->
+        <div class="effect-button" alt="Colour Picker" onclick="display_effect('STREAM'); panel_open(['color-picker-stream'])">
           <img src="{{url_for('static', filename='icons/pick.png')}}" class="effect-img">
           <p class="effect-name">Colour Picker</p>
         </div>
 
-        <div class="color-picker" id="color-picker"></div>
+        <div class="color-picker" id="color-picker-stream"></div>
+        <!-- COLOUR PICKER -->
 
       </div>
       <div id="button-container">
         <p id="effect-title">Effects</p>
 
-        <div class="effect-button" alt="Fade In" onclick="display_effect('FADEIN')">
+        <!-- FADE IN -->
+        <div class="effect-button" alt="Fade In" onclick="display_effect('FADEIN'); panel_open(['speed-fadein'])">
           <img src="{{url_for('static', filename='icons/fadeIn.png')}}" class="effect-img">
           <p class="effect-name-2">Rainbow Fade-In</p>
         </div>
 
-        <div class="effect-button" alt="Rainbow" onclick="display_effect('RAINBOW')">
+        <div class="slider-container" id="speed-fadein">
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-fadein"></div>
+        </div>
+        <!-- FADE IN -->
+
+        <!-- RAINBOW -->
+        <div class="effect-button" alt="Rainbow" onclick="display_effect('RAINBOW'); panel_open(['speed-rainbow'])">
           <img src="{{url_for('static', filename='icons/rainbow.png')}}" class="effect-img">
           <p class="effect-name">Rainbow</p>
         </div>
 
-        <div class="effect-button" alt="Chase" onclick="display_effect('CHASE')">
+        <div class="slider-container" id="speed-rainbow">
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-rainbow"></div>
+        </div>
+        <!-- RAINBOW -->
+
+        <!-- CHASE -->
+        <div class="effect-button" alt="Chase" onclick="display_effect('CHASE'); panel_open(['color-picker-chase','speed-chase'])">
           <img src="{{url_for('static', filename='icons/chase.png')}}" class="effect-img">
           <p class="effect-name">Chase</p>
         </div>
 
-        <div class="effect-button" alt="Dual Chase" onclick="display_effect('DUALCHASE')">
+        <div class="slider-container" id="speed-chase">      
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-chase"></div>
+        </div>
+        
+        <div class="color-picker" id="color-picker-chase"></div>
+        <!-- CHASE -->
+
+        <!-- DUALCHASE -->
+        <div class="effect-button" alt="Dual Chase" onclick="display_effect('DUALCHASE'); panel_open(['color-picker-chase2','speed-chase2'])">
           <img src="{{url_for('static', filename='icons/dualchase.png')}}" class="effect-img">
           <p class="effect-name">Dual Chase</p>
         </div>
 
-        <div class="effect-button" alt="Triple Chase" onclick="display_effect('TRIPLECHASE')">
+        <div class="slider-container" id="speed-chase2">      
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-chase2"></div>
+        </div>
+
+        <div class="color-picker" id="color-picker-chase2"></div>
+        <!-- DUALCHASE -->
+
+        <!-- TRIPLECHASE -->
+        <div class="effect-button" alt="Triple Chase" onclick="display_effect('TRIPLECHASE'); panel_open(['color-picker-chase3','speed-chase3'])">
           <img src="{{url_for('static', filename='icons/triplechase.png')}}" class="effect-img">
           <p class="effect-name">Triple Chase</p>
         </div>
 
-        <div class="effect-button" alt="Theatre Chase" onclick="display_effect('THEATRE')">
+        <div class="slider-container" id="speed-chase3">      
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-chase3"></div>
+        </div>
+
+        <div class="color-picker" id="color-picker-chase3"></div>
+        <!-- TRIPLECHASE -->
+
+        <!-- THREATRECHASE -->
+        <div class="effect-button" alt="Theatre Chase" onclick="display_effect('THEATRE'); panel_open(['color-picker-theatrechase','speed-theatrechase'])">
           <img src="{{url_for('static', filename='icons/theatreChase.png')}}" class="effect-img">
           <p class="effect-name-2">Theatre Chase</p>
         </div>
 
-        <div class="effect-button" alt="Build Up/Down" onclick="display_effect('BUILDUPDOWN')">
+        <div class="slider-container" id="speed-theatrechase">      
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-theatrechase"></div>
+        </div>
+
+        <div class="color-picker" id="color-picker-theatrechase"></div>
+        <!-- THREATRECHASE -->
+
+        <!-- BUILD UP DOWN -->
+        <div class="effect-button" alt="Build Up/Down" onclick="display_effect('BUILDUPDOWN'); panel_open(['color-picker-build','speed-build','chunk-build'])">
           <img src="{{url_for('static', filename='icons/build.png')}}" class="effect-img">
           <p class="effect-name-2">Build Up/Down</p>
         </div>
+
+        <div class="slider-container" id="speed-build">      
+          <img src="{{url_for('static', filename='icons/slow_arrow.png')}}" class="speed-img">
+          <p>Speed</p>
+          <img src="{{url_for('static', filename='icons/fast_arrow.png')}}" class="speed-img">
+          <div class="speed-slider" id="speed-slider-build"></div>
+        </div>
+        
+        <div class="color-picker" id="color-picker-build"></div>
+
+        <div class="slider-container" id="chunk-build">      
+          <img src="{{url_for('static', filename='icons/small_block.png')}}" class="speed-img">
+          <p>Block Size</p>
+          <img src="{{url_for('static', filename='icons/large_block.png')}}" class="speed-img">
+          <div class="speed-slider" id="chunk-slider-build"></div>
+        </div>
+        <!-- BUILD UP DOWN -->
 
       </div>
       {% endif %}
@@ -149,6 +233,8 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.min.js" integrity="sha256-9/aliU8dGd2tb6OSsuzixeV4y/faTqgFtohetphbbj0=" crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/socket.io/2.1.1/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js" integrity="sha512-BHDCWLtdp0XpAFccP2NifCbJfYoYhsRSZOUM3KnAxy2b/Ay3Bn91frud+3A95brA4wDWV3yEOZrJqgV8aZRXUQ==" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="//cdnjs.cloudflare.com/ajax/libs/jqueryui-touch-punch/0.2.3/jquery.ui.touch-punch.min.js"></script>
     <!-- <script src="{{ url_for('static', filename='ledctrl.js') }}"></script> -->
 
     <script>
@@ -217,8 +303,38 @@
         // set check event handler
         flask_socket.on('check_result', check_handler)
 
+        window.CW_setup = [
+          ["color-picker-chase", [0, 100, 80]],
+          ["color-picker-chase2", [0, 100, 80]],
+          ["color-picker-chase3", [0, 100, 80]],
+          ["color-picker-theatrechase", [0, 100, 80]],
+          ["color-picker-build", [220, 100, 80]]
+        ];
+
+        window.CWs = [];
+
+        window.CWindex;
+        for (window.CWindex = 0; window.CWindex < window.CW_setup.length; window.CWindex++) {
+          cw = new ReinventedColorWheel({
+            appendTo: document.getElementById(window.CW_setup[window.CWindex][0]),
+            hsv: window.CW_setup[window.CWindex][1],
+            // appearance
+            wheelDiameter: 300,
+            wheelThickness: 40,
+            handleDiameter: 32,
+            wheelReflectsSaturation: false,
+
+            // handler
+            onChange: function (color) {
+              msg = {"CMD":"CLRCHNG", "uuid":user_uuid, "IP":user_ip, "Colour":[color.hsv[0], color.hsv[1], color.hsv[2]] };
+              ledctrl_socket.send(JSON.stringify(msg));
+            }
+          });
+          CWs.push(cw);
+        }
+
         colorWheel = new ReinventedColorWheel({
-          appendTo: document.getElementById("color-picker"),
+          appendTo: document.getElementById("color-picker-stream"),
           hsv: [0, 100, 80],
           // appearance
           wheelDiameter: 300,
@@ -233,6 +349,41 @@
           }
         });
 
+        window.SL_setup = [
+          ["#speed-slider-fadein", -15, -25, -1, 1],
+          ["#speed-slider-rainbow", -80, -160, -6, 1],
+          ["#speed-slider-chase", -25, -80, -8, 1],
+          ["#speed-slider-chase2", -25, -80, -8, 1],
+          ["#speed-slider-chase3", -25, -80, -8, 1],
+          ["#speed-slider-build", -0.8, -0.9, -0.55, 0.05],
+          ["#speed-slider-theatrechase", -40, -80, -25, 1]
+        ];
+
+        window.SLindex;
+        for (window.SLindex = 0; window.SLindex < window.SL_setup.length; window.SLindex++) {
+          $(window.SL_setup[window.SLindex][0]).slider({
+            value: window.SL_setup[window.SLindex][1],
+            min: window.SL_setup[window.SLindex][2],
+            max: window.SL_setup[window.SLindex][3],
+            step: window.SL_setup[window.SLindex][4],
+            slide: function( event, spd ) {
+              msg = {"CMD":"SPDCHNG", "uuid":user_uuid, "IP":user_ip, "Speed":Math.abs(spd.value) };
+              ledctrl_socket.send(JSON.stringify(msg));
+            }
+          });
+        }
+
+      });
+
+      $("#chunk-slider-build").slider({
+        value: 14,
+        min: 4,
+        max: 26,
+        step: 1,
+        slide: function( event, spd ) {
+          msg = {"CMD":"CHNKCHNG", "uuid":user_uuid, "IP":user_ip, "Block":Math.abs(spd.value) };
+          ledctrl_socket.send(JSON.stringify(msg));
+        }
       });
 
       // if time has elapsed and server has not signalled, exit anyways
@@ -256,20 +407,53 @@
       // send display effect command to led control
       function display_effect(effect_cmd) {
         if (effect_cmd == 'STREAM') {
-          msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip, "Data":[0,100,100]}
+          msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip, "Data":[0,100,99]};
           ledctrl_socket.send(JSON.stringify(msg));
         } else {
-          msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip}
+          msg = {"CMD":effect_cmd, "uuid":user_uuid, "IP":user_ip};
           ledctrl_socket.send(JSON.stringify(msg));
+          if (effect_cmd == 'CHASE' || effect_cmd == 'DUALCHASE' || effect_cmd == 'TRIPLECHASE' || effect_cmd == 'THEATRE') {
+            msg = {"CMD":"CLRCHNG", "uuid":user_uuid, "IP":user_ip, "Colour":[0,100,100] };
+            ledctrl_socket.send(JSON.stringify(msg));
+          }
+          if (effect_cmd == 'BUILDUPDOWN') {
+            msg = {"CMD":"CLRCHNG", "uuid":user_uuid, "IP":user_ip, "Colour":[220,100,100] };
+            ledctrl_socket.send(JSON.stringify(msg));
+          }
         }
         
       }
 
       // panels
-      $("#color-picker").hide();
+      function hide_all_panels() {
+        $("#color-picker-stream").hide();
+        $("#color-picker-chase").hide();
+        $("#color-picker-chase2").hide();
+        $("#color-picker-chase3").hide();
+        $("#color-picker-theatrechase").hide();
+        $("#color-picker-build").hide();
+        $("#speed-chase").hide();
+        $("#speed-chase2").hide();
+        $("#speed-chase3").hide();
+        $("#speed-rainbow").hide();
+        $("#speed-fadein").hide();
+        $("#speed-build").hide();
+        $("#speed-theatrechase").hide();
+        $("#chunk-build").hide();
+      }
+
+      hide_all_panels();
+
+      function openp(item, index) {
+        $("#" + item).toggle(100);
+      }
 
       function panel_open(panel_id) {
-        $("#" + panel_id).toggle(100);
+        hide_all_panels();
+        if (panel_id != null) {
+          panel_id.forEach(openp);
+        }
+        
       }
 
     </script>

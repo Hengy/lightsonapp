@@ -240,3 +240,34 @@ a {
     margin-top: 20px;
     margin-bottom: 20px;
 }
+
+.speed-slider {
+    float: left;
+    width: 90%;
+    height: 14px;
+    margin-left: calc(5% - 15px);
+    margin-top: 5px;
+    margin-bottom: 10px;
+}
+
+.slider-container {
+    width: 100%;
+    height: 120px;
+    padding: 4px;
+}
+
+.speed-img {
+    float: left;
+    height: 30px;
+}
+
+.slider-container > p {
+    width: calc(100% - 145px);
+    float: left;
+    position: relative;
+    top: -10px;
+    left: 6px;
+    font-family: 'droid_sansregular', Arial, sans-serif;
+    text-align: center;
+    font-weight: 800;
+}

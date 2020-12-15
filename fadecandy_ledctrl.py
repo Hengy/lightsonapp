@@ -146,12 +146,13 @@ class LEDController():
 
         # theatre chase
         self.state6_position = 9
-        self.state6_brightness = 255
+        self.state6_brightness = 1
+        self.state6_color = 0
 
         # Dual Chase
         self.state7_position = 0
         self.state7_position2 = int(numLEDs/2) + 12
-        self.state7_color = self.state5_step
+        self.state7_color = 0
         self.state7_color2 = 0
 
         # Triple Chase
@@ -160,13 +161,14 @@ class LEDController():
         self.state8_position3 = int((numLEDs/3) * 2) + 16
         self.state8_color = self.state5_step
         self.state8_color2 = 0
-        self.state8_color3 = 1 - self.state5_step
+        self.state8_color3 = 0
 
         # build up/down
         self.state9_dir = True
         self.state9_array = []
         self.state9_array2 = []
         self.state9_max_delay = 1500
+        self.state9_min_delay = 120
         self.state9_chunk_min = 10
         self.state9_chunk_max = 18
         self.state9_speed = 0.9
@@ -266,6 +268,73 @@ class LEDController():
                         self.effect_delay = 20
                         print("idling LEDs...")
                         self._state = 0
+                    elif msg["CMD"] == "CLRCHNG":
+                        if self._state == 5: #chase
+                            self.state5_color = msg["Colour"][0]/360
+                        if self._state == 6: #theatre
+                            self.state6_color = msg["Colour"][0]/360
+                        if self._state == 7: #dualchase
+                            self.state7_color = msg["Colour"][0]/360
+                            self.state7_color2 = msg["Colour"][0]/360
+                        if self._state == 8: #triplechase
+                            self.state8_color = msg["Colour"][0]/360
+                            self.state8_color2 = msg["Colour"][0]/360
+                            self.state8_color3 = msg["Colour"][0]/360
+                        if self._state == 9: #build
+                            self.state9_color = msg["Colour"][0]/360
+                            for i in range(numLEDs):
+                                if self.pixels[i] != (0,0,0):
+                                    if env_config.LED_POWER_LIMIT:
+                                        new_color = HSVtoRGB(self.state9_color,1,0.8*env_config.LED_POWER_SCALE)
+                                    else:
+                                        new_color = HSVtoRGB(self.state9_color,1,0.75)
+                                    self.pixels[i] = new_color
+                    elif msg["CMD"] == "SPDCHNG":
+                        if self._state == 4: # rainbow
+                            self.effect_delay = msg["Speed"]
+                        if self._state == 5 or self._state == 7 or self._state == 8: # chase / dualchase / triplechase
+                            self.effect_delay = msg["Speed"]
+                        if self._state == 3: # fadein
+                            self.effect_delay = msg["Speed"]
+                        if self._state == 9: # build
+                            self.state9_speed = msg["Speed"]
+                        if self._state == 6: # theatre
+                            self.effect_delay = msg["Speed"]
+                    elif msg["CMD"] == "CHNKCHNG":
+                        if self._state == 9:
+                            size = msg["Block"]
+                            if size <= 8:
+                                dev = math.floor(size/2)
+                                self.state9_min_delay = 60
+                            elif size > 18:
+                                dev = math.floor(size/4)
+                                self.state9_min_delay = 150
+                            else:
+                                dev = 5
+                                self.state9_min_delay = 120
+                            self.state9_chunk_min = size - dev
+                            self.state9_chunk_max = size + dev
+
+                            self.state9_array = []
+                            self.state9_array2 = []
+
+                            # build random 'chunk' list
+                            done = False
+                            pos = 0
+                            while not done:
+                                end = pos + random.randint(self.state9_chunk_min,self.state9_chunk_max)
+                                if end >= numLEDs:
+                                    end = numLEDs - 1
+                                self.state9_array.append((pos, end))
+                                if end != numLEDs - 1:
+                                    pos = end
+                                else:
+                                    done = True
+
+                            self.state9_dir = True
+
+                            self.pixels = [(0,0,0)] * numLEDs
+
                     else:
                         self.pixels = [(0,0,0)] * numLEDs
                         self.effect_delay = 20
@@ -379,7 +448,6 @@ class LEDController():
         elif self.idle_mode == 2:
             self.effect_delay = random.choice([2000,2500,3000])
             self.idle_rotate()
-            self.adj_brightness()
         elif self.idle_mode == 3:
             self.idle_rainbow()
             self.adj_brightness()
@@ -426,7 +494,10 @@ class LEDController():
             pane = random.randint(0,3)
         new_color_index = random.choice([-1,86/360,196/360,280/360,-1,86/360,196/360,280/360])
         if new_color_index != -1:
-            new_color = HSVtoRGB(new_color_index,1,0.7)
+            if env_config.LED_POWER_LIMIT:
+                new_color = HSVtoRGB(new_color_index,1,0.8*env_config.LED_POWER_SCALE)
+            else:
+                new_color = HSVtoRGB(new_color_index,1,0.75)
         else:
             new_color = (0,0,0)
 
@@ -571,7 +642,6 @@ class LEDController():
         self.state5_position += self.state5_speed
         if self.state5_position > (numLEDs + 10):
             self.state5_position = -14
-            self.state5_color += self.state5_step
 
 
 
@@ -601,12 +671,10 @@ class LEDController():
         self.state7_position += self.state5_speed
         if self.state7_position > (numLEDs + 10):
             self.state7_position = -10
-            self.state7_color += self.state5_step * 2
 
         self.state7_position2 += self.state5_speed
         if self.state7_position2 > (numLEDs + 10):
             self.state7_position2 = -10
-            self.state7_color2 += self.state5_step * 2
 
 
 
@@ -642,34 +710,29 @@ class LEDController():
         self.state8_position += self.state5_speed
         if self.state8_position > (numLEDs + 10):
             self.state8_position = -10
-            self.state8_color += self.state5_step * 3
 
         self.state8_position2 += self.state5_speed
         if self.state8_position2 > (numLEDs + 10):
             self.state8_position2 = -10
-            self.state8_color2 += self.state5_step * 3
 
         self.state8_position3 += self.state5_speed
         if self.state8_position3 > (numLEDs + 10):
             self.state8_position3 = -10
-            self.state8_color3 += self.state5_step * 3
 
     # theatre chase
     def theatre_chase(self):
-
-        val = self.state6_brightness
 
         self.pixels = [(0,0,0)] * numLEDs
 
         for i in range(numLEDs - 6):
             if (i+self.state6_position) % 12 == 0:
-                self.pixels[i+6] = (val,0,0)
-                self.pixels[i+5] = (val,0,0)
-                self.pixels[i+4] = (val*0.8,0,0)
-                self.pixels[i+3] = (val*0.6,0,0)
-                self.pixels[i+2] = (val*0.4,0,0)
-                self.pixels[i+1] = (val*0.2,0,0)
-                self.pixels[i] = (val*0.1,0,0)
+                self.pixels[i+6] = HSVtoRGB(self.state6_color,1,self.state6_brightness)
+                self.pixels[i+5] = HSVtoRGB(self.state6_color,1,self.state6_brightness)
+                self.pixels[i+4] = HSVtoRGB(self.state6_color,1,self.state6_brightness*0.8)
+                self.pixels[i+3] = HSVtoRGB(self.state6_color,1,self.state6_brightness*0.6)
+                self.pixels[i+2] = HSVtoRGB(self.state6_color,1,self.state6_brightness*0.4)
+                self.pixels[i+1] = HSVtoRGB(self.state6_color,1,self.state6_brightness*0.2)
+                self.pixels[i] = HSVtoRGB(self.state6_color,1,self.state6_brightness*0.1)
 
         self.state6_position -= 1
         if self.state6_position == 0:
@@ -691,7 +754,7 @@ class LEDController():
                 self.state9_array2.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = new_color
-            if self.effect_delay > 120:
+            if self.effect_delay > self.state9_min_delay:
                 self.effect_delay = self.effect_delay*self.state9_speed
         else:
             pick = random.randint(0, len(self.state9_array2)-1)
@@ -700,7 +763,7 @@ class LEDController():
                 self.state9_array.append(section)
                 for i in range(section[0],section[1]):
                     self.pixels[i] = (0,0,0)
-            if self.effect_delay > 120:
+            if self.effect_delay > self.state9_min_delay:
                 self.effect_delay = self.effect_delay*self.state9_speed
 
         if len(self.state9_array) == 0:
@@ -711,9 +774,6 @@ class LEDController():
             self.effect_delay = self.state9_max_delay
 
             self.state9_array = []
-            self.state9_color += self.state9_step
-            if self.state9_color > 1.0:
-                self.state9_color = 0
 
             # build random 'chunk' list
             done = False

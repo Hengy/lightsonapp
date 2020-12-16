@@ -62,7 +62,7 @@ QUEUE_MAX_TIME = 120    # time (in seconds) a user has to control LEDs before co
 # TIME ON/OFF
 #------------------------------------------------------
 
-TIME_ON_HOUR = 16       # hour to turn on (24 hour time) 16 = 4PM
+TIME_ON_HOUR = 1       # hour to turn on (24 hour time) 16 = 4PM
 TIME_OFF_HOUR = 23      # hour to turn off (24 hour time) 23 = 11PM
 
 #------------------------------------------------------
@@ -98,7 +98,7 @@ RELAY_PIN_MOM_TIME = 0.2 # time in seconds that the relay is in opposite pin sta
 NUM_LEDS = 1  #for testing ONLY
 
 LED_POWER_LIMIT = True  # enable (True) power limit on LED effects that use all (or  most) pixels
-LED_POWER_SCALE = 0.8   # factor to limit LED power; < 1 reduces LED brightness/power
+LED_POWER_SCALE = 0.6   # factor to limit LED power; < 1 reduces LED brightness/power
 
 FC_CAHNNELS = 3         # number of Fadecandy OPC channels - 1 OPC channel per window for easy addressing!
 
@@ -148,18 +148,18 @@ def config_leds():
     elif SELF_IP == "192.168.1.190":    # Staff room - upper
         WIN_UPPER_PANE = False
         PI_DISPLAY_TYPE = 0
-        NUM_LEDS = 708
+        NUM_LEDS = 709
     elif SELF_IP == "192.168.1.191":    # PSL - upper
         WIN_UPPER_PANE = False
         PI_DISPLAY_TYPE = 0
-        NUM_LEDS = 708
+        NUM_LEDS = 709
     elif SELF_IP == "192.168.1.192":    # Makerspace - lower
         WIN_UPPER_PANE = True
         PI_DISPLAY_TYPE = 0
-        NUM_LEDS = 918
+        NUM_LEDS = 919
     elif SELF_IP == "192.168.1.193":    # Shaunas office - lower
         WIN_UPPER_PANE = True
         PI_DISPLAY_TYPE = 0
-        NUM_LEDS = 918
+        NUM_LEDS = 919
     elif SELF_IP == "192.168.1.194":    # DMX
         PI_DISPLAY_TYPE = 1

@@ -162,7 +162,7 @@ class LEDController():
                         self._state = 0
 
             if not check_in_time():
-                self._state = 1
+                self._state = 0
 
             #print("state: ", self._state)
 

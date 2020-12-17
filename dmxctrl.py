@@ -96,11 +96,13 @@ class LEDController():
         GPIO.setup(env_config.RELAY_PIN_OFF, GPIO.OUT)
         GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_OFF)
 
+        self.blank()
+
         # state machine variables
         # ----------------------------------------------------------------------
         # state: 0 = IDLE; 1 = BLANK; 2 = STREAMING; > 3 = LED Effect modes
         self._prev_state = -1
-        self._state = 0
+        self._state = 1
         
         # message polling
         self.poll_period = 10 # polling period in ms
@@ -162,7 +164,7 @@ class LEDController():
                         self._state = 0
 
             if not check_in_time():
-                self._state = 0
+                self._state = 1
 
             #print("state: ", self._state)
 

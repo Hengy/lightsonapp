@@ -387,7 +387,7 @@ class LEDController():
                 else:
                     self.idle_leds()
 
-            if not check_in_time():
+            if not check_in_time(): # if it is NOT time to display
                 self.pixels = [(0,0,0)] * numLEDs
             client.put_pixels(self.pixels)
 

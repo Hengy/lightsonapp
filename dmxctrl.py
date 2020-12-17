@@ -96,8 +96,6 @@ class LEDController():
         GPIO.setup(env_config.RELAY_PIN_OFF, GPIO.OUT)
         GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_OFF)
 
-        self.blank()
-
         # state machine variables
         # ----------------------------------------------------------------------
         # state: 0 = IDLE; 1 = BLANK; 2 = STREAMING; > 3 = LED Effect modes
@@ -107,13 +105,16 @@ class LEDController():
         # message polling
         self.poll_period = 10 # polling period in ms
 
-        # effect delay time
-        self.effect_delay = 500 # ms
-
         # routine1
         self.state3_states = [0,0,0] # R,G,B
 
         # ----------------------------------------------------------------------
+
+        if check_in_time():  # if it IS time to display
+            self._state = 0 # idle
+            self.idle()
+        else:
+            self.blank()
 
         print("DMX Controller initialized")
 
@@ -126,11 +127,12 @@ class LEDController():
         time_now = int(round(time.time() * 1000)) # time now
         time_prev_poll = 0
 
-        time_prev_pixel_update = 0
-
         while msg["CMD"] != "END":
         # state machine beginning -------------------------------------------------------
             time_now = int(round(time.time() * 1000)) # time now
+
+            # if check_in_time():  # if it IS time to display
+            #     self._state = 0 # idle
 
             if time_now - time_prev_poll >= self.poll_period:
 
@@ -139,55 +141,50 @@ class LEDController():
                     jsonmsg = conn.recv()
                     msg = json.loads(jsonmsg)
                     if msg["CMD"] == "ROUTINE1":
-                        print("routine 1")
                         self._state = 3
                     elif msg["CMD"] == "ROUTINE2":
-                        print("routine 2")
                         self._state = 4
                     elif msg["CMD"] == "ROUTINE3":
-                        print("routine 3")
                         self._state = 5
                     elif msg["CMD"] == "ROUTINE4":
-                        print("routine 4")
                         self._state = 6
                     elif msg["CMD"] == "ROUTINE5":
-                        print("routine 5")
                         self._state = 7
                     elif msg["CMD"] == "ROUTINE6":
-                        print("routine 6")
                         self._state = 8
                     elif msg["CMD"] == "RANDOM":
-                        self._state = random.randint(3,8)
+                        self._state = random.choice([3,4,5,6,7,8])
+                        while self._state == self._prev_state:
+                            self._state = random.choice([3,4,5,6,7,8])
                     elif msg["CMD"] == "IDLE":
                         self._state = 0
-                    else:
-                        self._state = 0
 
-            if not check_in_time():
-                self._state = 1
+            if not check_in_time():  # if it is NOT time to display
+                self._state = 1 # blank
 
-            #print("state: ", self._state)
+            # print("state: ", self._state, " prev state: ", self._prev_state)
 
-            if time_now - time_prev_pixel_update >= self.effect_delay:
-                time_prev_pixel_update = int(round(time.time() * 1000)) # time now
-                if self._state == 0:
-                    self.idle()
-                elif self._state == 1:
-                    self.blank()
-                elif self._state == 3:
-                    self.routine(1)
-                elif self._state == 4:
-                    self.routine(2)
-                elif self._state == 5:
-                    self.routine(3)
-                elif self._state == 6:
-                    self.routine(4)
-                elif self._state == 7:
-                    self.routine(5)
-                elif self._state == 8:
-                    self.routine(6)
-                else:
-                    self.idle()
+            if self._state == 0:
+                self.idle()
+            elif self._state == 1:
+                self.blank()
+            elif self._state == 3:
+                self.routine(1)
+            elif self._state == 4:
+                self.routine(2)
+            elif self._state == 5:
+                self.routine(3)
+            elif self._state == 6:
+                self.routine(4)
+            elif self._state == 7:
+                self.routine(5)
+            elif self._state == 8:
+                self.routine(6)
+            else:
+                self.idle()
+
+            if self._prev_state != self._state:
+                print("state: ", self._state, " prev state: ", self._prev_state)
 
         # state machine end ------------------------------------------------------------
         print("Ending child...")
@@ -195,28 +192,28 @@ class LEDController():
 
     # idle LED routines
     def idle(self):
-        if self._prev_state != self._state:
+        if self._prev_state != 0:
             GPIO.output(env_config.RELAY_PIN_IDLE, RELAY_LOGIC_ON)
             time.sleep(env_config.RELAY_PIN_MOM_TIME)
-            print("idle")
+            print("switched to idle @ ", time.time())
             GPIO.output(env_config.RELAY_PIN_IDLE, RELAY_LOGIC_OFF)
-            self._prev_state = self._state
+            self._prev_state = 0
 
     # blank all LEDs
     def blank(self):
-        if self._prev_state != self._state:
+        if self._prev_state != 1:
             GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_ON)
             time.sleep(env_config.RELAY_PIN_MOM_TIME)
-            print("blank")
+            print("switched to blank @ ", time.time())
             GPIO.output(env_config.RELAY_PIN_OFF, RELAY_LOGIC_OFF)
-            self._prev_state = self._state
-            
+            self._prev_state = 1    
 
     # chooses one of 6 combinations
     def routine(self, num):
-        if self._prev_state != self._state:
+        if self._prev_state != (num + 2):
             GPIO.output(env_config.RELAY_PINS[num-1], RELAY_LOGIC_ON)
             time.sleep(env_config.RELAY_PIN_MOM_TIME)
+            print("switching to routine ", num, " @ ", time.time())
             GPIO.output(env_config.RELAY_PINS[num-1], RELAY_LOGIC_OFF)
-            self._prev_state = self._state
+            self._prev_state = num + 2
   

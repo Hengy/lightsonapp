@@ -31,12 +31,12 @@ def HSVtoRGB(h, s, v):
     if s == 0.0: v*=255; return (v, v, v)
     i = int(h*6.) # XXX assume int() truncates!
     f = (h*6.)-i; p,q,t = int(255*(v*(1.-s))), int(255*(v*(1.-s*f))), int(255*(v*(1.-s*(1.-f)))); v*=255; i%=6
-    if i == 0: return (v, t, p)
-    if i == 1: return (q, v, p)
-    if i == 2: return (p, v, t)
-    if i == 3: return (p, q, v)
-    if i == 4: return (t, p, v)
-    if i == 5: return (v, p, q)
+    if i == 0: return (int(v), t, p)
+    if i == 1: return (int(q), v, p)
+    if i == 2: return (int(p), v, t)
+    if i == 3: return (int(p), q, v)
+    if i == 4: return (int(t), p, v)
+    if i == 5: return (int(v), p, q)
 
 LIB_GREEN_R = 150
 LIB_GREEN_G = 202
@@ -114,7 +114,7 @@ class LEDController():
         self.effect_delay = 20 # ms
 
         # idle
-        self.idle_mode = 4
+        self.idle_mode = random.randint(0,3)
         self.idle_mode_max = 4
         self.idle_mode_time = 0
         self.idle_change_time = 0
@@ -174,6 +174,20 @@ class LEDController():
         self.state9_speed = 0.9
         self.state9_color = 0
         self.state9_step = 0.055
+
+        # meteor
+        self.state10_index = 0
+        self.state10_color = [310, 0.4, 1]
+        self.state10_color2 = [20, 0.7, 1]
+        self.state10_color3 = [270, 0.7, 1]
+        self.state10_len = 7
+        self.state10_tail_len = 20
+        self.state10_tail_val = 0.9
+        self.state10_decay_rate_min = 0.0
+        self.state10_decay_rate_max = 0.2
+        self.state10_decay_array = []
+        self.state10_array = []
+        self.state10_decay_pixels = []
         # ----------------------------------------------------------------------
 
         print("LED Controller initialized")
@@ -252,6 +266,9 @@ class LEDController():
                                 done = True
 
                         self._state = 9
+                    # elif msg["CMD"] == "COMET":
+                    #     self.effect_delay = 40
+                    #     self._state = 10
                     elif msg["CMD"] == "DARK":
                         self.effect_delay = 20
                         print("turning off LEDs...")
@@ -365,6 +382,8 @@ class LEDController():
                     self.triplechase()
                 elif self._state == 9:
                     self.build_up_down()
+                # elif self._state == 10:
+                #     self.meteor()
                 else:
                     self.idle_leds()
 
@@ -491,7 +510,7 @@ class LEDController():
         if env_config.WIN_UPPER_PANE:
             pane = random.randint(0,3)
         else:
-            pane = random.randint(0,3)
+            pane = random.randint(0,2)
         new_color_index = random.choice([-1,86/360,196/360,280/360,-1,86/360,196/360,280/360])
         if new_color_index != -1:
             if env_config.LED_POWER_LIMIT:
@@ -787,4 +806,89 @@ class LEDController():
                     pos = end
                 else:
                     done = True
+
+    # meteor
+    # def meteor(self):
+
+    #     for i in range(numLEDs):
+    #         if self.pixels[i] != (0,0,0):
+    #             self.pixels[i] = (self.pixels[i][0] * 0.65, self.pixels[i][0] * 0.65, self.pixels[i][0] * 0.65)
+    #             if self.pixels[i][0] < 25 or self.pixels[i][1] < 25 or self.pixels[i][2] < 25:
+    #                 self.pixels[i] = (0,0,0)
+    #     # self.pixels = [(0,0,0)] * numLEDs
+        
+    #     # create new tail color
+    #     tail_color = random.choice([0,1,2,0,1,2,0,1,2,0,1,2,0,1,2])
+    #     if tail_color == 0:
+    #         new_color = HSVtoRGB(self.state10_color[0],self.state10_color[1],self.state10_color[2])
+    #     elif tail_color == 1:
+    #         new_color = HSVtoRGB(self.state10_color2[0],self.state10_color2[1],self.state10_color2[2])
+    #     else:
+    #         new_color = HSVtoRGB(self.state10_color3[0],self.state10_color3[1],self.state10_color3[2])
+
+    #     # make new decay array
+    #     major = random.choice([0.45,0.75,0.75,0.45,0.75,0.45,0.45,0.75,0.45,0.45,0.75,0.45,0.75,0.75,0.75,0.45,0.75,0.45,0.45,0.75,0.75,0.45,0.45,0.75,0.45,0.45])
+    #     if len(self.state10_decay_array) == 0:
+    #         for i in range(self.state10_tail_len + 1):
+    #             self.state10_decay_array.append(round(random.uniform(self.state10_decay_rate_min, self.state10_decay_rate_max), 2) + major)
+    #         self.state10_decay_array[0] = self.state10_tail_val
+    #         self.state10_decay_array[self.state10_tail_len] = 0
+    #     else:   # adj decay array by 1
+    #         self.state10_decay_array.pop()
+    #         self.state10_decay_array.insert(0, self.state10_tail_val)
+    #         self.state10_decay_array[self.state10_tail_len] = 0
+    #         self.state10_decay_array[1] = round(random.uniform(self.state10_decay_rate_min, self.state10_decay_rate_max), 2) + major
+
+    #     # print("decay: ", self.state10_decay_array)
+
+    #     # make new decay pixels
+    #     if len(self.state10_decay_pixels) == 0:
+    #         self.state10_decay_pixels = [(0,0,0)] * (self.state10_tail_len + 1)
+
+    #     # take off old pixel, insert new pixel
+    #     self.state10_decay_pixels.pop()
+    #     self.state10_decay_pixels.insert(0, new_color)
+
+    #     # make new meteor
+    #     if len(self.state10_array) == 0:
+    #         for i in range(self.state10_tail_len + self.state10_len + 1):
+    #             self.state10_array.append((0,0,0))
+
+    #     # decay
+    #     for i in range(self.state10_tail_len, len(self.state10_array)):
+    #         new_pixel = (self.state10_decay_pixels[i-self.state10_tail_len][0] * self.state10_decay_array[i-self.state10_tail_len],
+    #                     self.state10_decay_pixels[i-self.state10_tail_len][1] * self.state10_decay_array[i-self.state10_tail_len],
+    #                     self.state10_decay_pixels[i-self.state10_tail_len][2] * self.state10_decay_array[i-self.state10_tail_len]
+    #                     )
+    #         self.state10_decay_pixels[i-self.state10_tail_len] = ( int(new_pixel[0]), int(new_pixel[1]), int(new_pixel[2]) )
+
+    #     # copy decay pixel to main array
+    #     for i in range(len(self.state10_decay_pixels)):
+    #         self.state10_array[i + self.state10_len] = self.state10_decay_pixels[i]
+
+    #     # head
+    #     new_color = HSVtoRGB(self.state10_color[0],self.state10_color[1],self.state10_color[2])
+    #     self.state10_array[0] = new_color
+    #     self.state10_array[1] = new_color
+    #     self.state10_array[2] = new_color
+    #     for i in range(3, self.state10_len):
+    #         new_color = HSVtoRGB(self.state10_color[0],self.state10_color[1],self.state10_color[2] * (1-(0.08*i)))
+    #         self.state10_array[i] = new_color
+
+    #     # insert new tail color
+    #     # self.state10_array[self.state10_tail_len] = new_color
+
+    #     # print("Array: ", self.state10_array)
+
+    #     for i in range(len(self.state10_array)):
+    #         pos = i + self.state10_index
+    #         if pos < numLEDs:
+    #             self.pixels[pos] = self.state10_array[len(self.state10_array) - 1 - i]
+    #         else:
+    #             self.pixels[pos - numLEDs] = self.state10_array[len(self.state10_array) - 1 - i]
+
+    #     self.state10_index += 1
+    #     if self.state10_index >= numLEDs:
+    #         self.state10_index = 0
+
 
